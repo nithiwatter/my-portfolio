@@ -13,7 +13,7 @@ type ThemeProviderProps = {
   children: React.ReactNode;
 };
 
-const { Provider: ThemeStateProvider, useValue: useThemeState } =
+const { Provider: ThemeStateProvider, useOptionalValue: useThemeState } =
   createSimpleContext<Theme>('ThemeState');
 const { Provider: ThemeDispatchProvider, useValue: useThemeDispatch } =
   createSimpleContext<(theme: Theme) => void>('ThemeDispatch');
@@ -30,8 +30,14 @@ function readThemeFromLocalStorage() {
 }
 
 function ThemeProvider({ children }: ThemeProviderProps) {
-  // lazy initialize this to the currently stored theme
-  const [theme, setTheme] = React.useState<Theme>(readThemeFromLocalStorage);
+  // start with null - will later read from localStorage
+  const [theme, setTheme] = React.useState<Theme | null>(null);
+
+  React.useEffect(() => {
+    console.log('reading from localStorage');
+    const theme = readThemeFromLocalStorage();
+    setTheme(theme);
+  }, []);
 
   // logic for setting theme
   // 1) update local state
@@ -39,8 +45,9 @@ function ThemeProvider({ children }: ThemeProviderProps) {
   // 3) update tailwind theme via document
   // need to memoize this to otherwise the function identity would change every time - triggering rerenders
   const toggleTheme = React.useCallback((theme: Theme) => {
-    setTheme(theme);
-    localStorage.setItem(themeKey, theme);
+    const newTheme = theme === Theme.Light ? Theme.Dark : Theme.Light;
+    setTheme(newTheme);
+    localStorage.setItem(themeKey, newTheme);
   }, []);
 
   return (
@@ -52,4 +59,4 @@ function ThemeProvider({ children }: ThemeProviderProps) {
   );
 }
 
-export { ThemeProvider, useThemeState, useThemeDispatch };
+export { Theme, ThemeProvider, useThemeState, useThemeDispatch };

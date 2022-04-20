@@ -44,17 +44,51 @@ function HomeHeroSection() {
   );
 }
 
+function AboutSection() {
+  return (
+    <div className="space-y-4">
+      <h2 className="underline underline-offset-4">About Me</h2>
+      <p>
+        I am a Duke graduate of class 2022, double majoring in Computer Science
+        and Economics. I am passionate about new technologies and am always open
+        to learn new frameworks and coding languages. In my spare time, other
+        than coding, I usually read mangas and light novels and watch animes.{' '}
+        <span className="italic">
+          Yes, I am a weeb / NEET, and I am always online.
+        </span>
+      </p>
+    </div>
+  );
+}
+
+function LanguagesSection() {
+  return (
+    <div className="space-y-4">
+      <h2 className="underline underline-offset-4">
+        Languages and Technologies
+      </h2>
+      <ul className="list-disc">
+        <li>JavaScript / TypeScript</li>
+        <li>Python</li>
+        <li>HTML / CSS</li>
+        <li>React / Redux / ReactQuery / CRA / Next.js</li>
+        <li>Node.js / Express</li>
+        <li>SQL / MongoDB</li>
+        <li>Docker / Git</li>
+        <li>English / Thai / Japanese (beginner)</li>
+      </ul>
+    </div>
+  );
+}
+
 function Home() {
   return (
     <div className="space-y-8">
       <HomeHeroSection />
       <div className="flex justify-center">
-        <div className="w-1/2 space-y-4">
-          <h2 className="underline underline-offset-4">About Me</h2>
-          <p>
-            I am a Duke graduate of class 2022, double majoring in Computer
-            Science and Economics.
-          </p>
+        <div className="w-1/2 space-y-8">
+          <AboutSection />
+          <LanguagesSection />
         </div>
       </div>
     </div>

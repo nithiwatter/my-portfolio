@@ -1,12 +1,9 @@
 import React from 'react';
 import NextLink from 'next/link';
+import { useTheme } from 'next-themes';
 import { MoonIcon, SunIcon } from '@heroicons/react/outline';
 
-import {
-  Theme,
-  useThemeState,
-  useThemeDispatch,
-} from '../utils/theme-provider';
+import { Theme } from '../utils/theme-provider';
 
 type LinkProps = {
   children: React.ReactNode;
@@ -25,8 +22,13 @@ function Link({ children, href }: LinkProps) {
 
 function Navbar() {
   console.log('render navbar');
-  const theme = useThemeState();
-  const toggleTheme = useThemeDispatch();
+  const [mounted, setMounted] = React.useState(false);
+  const { theme: chosenTheme, systemTheme, setTheme } = useTheme();
+
+  const theme = chosenTheme === 'system' ? systemTheme : chosenTheme;
+
+  // When mounted on client, now we can show the UI
+  React.useEffect(() => setMounted(true), []);
 
   return (
     <div className="flex justify-center">
@@ -48,11 +50,10 @@ function Navbar() {
 
         <button
           onClick={() => {
-            // null assert that theme is non-null
-            toggleTheme(theme!);
+            setTheme(theme === Theme.Light ? Theme.Dark : Theme.Light);
           }}
         >
-          {!theme ? (
+          {!mounted ? (
             <div className="m-2 h-8 w-8" />
           ) : theme === Theme.Light ? (
             <SunIcon className="m-2 h-8 w-8 text-white" />

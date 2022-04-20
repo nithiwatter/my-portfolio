@@ -21,7 +21,6 @@ function Link({ children, href }: LinkProps) {
 }
 
 function Navbar() {
-  console.log('render navbar');
   const [mounted, setMounted] = React.useState(false);
   const { theme: chosenTheme, systemTheme, setTheme } = useTheme();
 

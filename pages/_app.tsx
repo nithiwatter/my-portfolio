@@ -5,9 +5,11 @@ import { ThemeProvider } from '../utils/theme-provider';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <div className="min-h-[100vh] bg-slate-100 dark:bg-slate-800">
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </div>
   );
 }
 

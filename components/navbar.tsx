@@ -16,7 +16,7 @@ type LinkProps = {
 function Link({ children, href }: LinkProps) {
   return (
     <NextLink href={href}>
-      <a className="underlined after:underlined-after text-slate-600 hover:text-black after:hover:scale-x-100 focus:text-black after:focus:scale-100">
+      <a className="underlined after:underlined-after after:hover:scale-x-100 after:focus:scale-100">
         {children}
       </a>
     </NextLink>
@@ -44,21 +44,20 @@ function Navbar() {
           <li>
             <Link href="/">Contact</Link>
           </li>
-          <li>
-            <Link href="/">{theme}</Link>
-          </li>
         </ul>
 
         <button
-          className="rounded-md bg-slate-600 hover:bg-slate-800 focus:ring-2 focus:ring-offset-2"
-          onClick={() => toggleTheme(theme!)}
+          onClick={() => {
+            // null assert that theme is non-null
+            toggleTheme(theme!);
+          }}
         >
           {!theme ? (
             <div className="m-2 h-8 w-8" />
           ) : theme === Theme.Light ? (
             <SunIcon className="m-2 h-8 w-8 text-white" />
           ) : (
-            <MoonIcon className="m-2 h-8 w-8 text-white" />
+            <MoonIcon className="m-2 h-8 w-8 text-slate-800" />
           )}
         </button>
       </div>

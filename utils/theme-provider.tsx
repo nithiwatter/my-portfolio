@@ -48,6 +48,11 @@ function ThemeProvider({ children }: ThemeProviderProps) {
     const newTheme = theme === Theme.Light ? Theme.Dark : Theme.Light;
     setTheme(newTheme);
     localStorage.setItem(themeKey, newTheme);
+
+    // update the html document according to tailwind
+    const root = window.document.documentElement;
+    root.classList.remove(theme);
+    root.classList.add(newTheme);
   }, []);
 
   return (

@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { AnimatedText, AnimatedTexts } from '../components/animation';
 import profilePic from '../public/images/hayasaka-profile.jpg';
 
-function Home() {
+function HomeHeroSection() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 pt-[60vh]">
       <div className="flex items-center justify-center ">
         <div className="rounded-md bg-gray-700/10 p-4 backdrop-blur dark:bg-gray-100/10">
           <AnimatedText>
@@ -39,6 +39,14 @@ function Home() {
         </div>
       </div>
     </div>
+  );
+}
+
+function Home() {
+  return (
+    <>
+      <HomeHeroSection />
+    </>
   );
 }
 

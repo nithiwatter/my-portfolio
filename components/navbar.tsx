@@ -30,7 +30,7 @@ function Navbar() {
   React.useEffect(() => setMounted(true), []);
 
   return (
-    <div className="sticky top-0 z-20 flex justify-center bg-slate-100/80 backdrop-blur dark:bg-slate-800/80">
+    <div className="fixed top-0 z-20 flex w-full justify-center bg-slate-100/80 backdrop-blur dark:bg-slate-800/80">
       <div className="flex w-1/2 items-center justify-between p-4">
         <ul className="flex space-x-8">
           <li>

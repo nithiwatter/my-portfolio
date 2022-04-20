@@ -32,4 +32,8 @@
   .underlined-after {
     @apply absolute left-0 block h-0.5 w-full origin-left scale-x-0 bg-black transition-transform duration-[250] dark:bg-white;
   }
+
+  .model-background {
+    @apply h-[80vh];
+  }
 }

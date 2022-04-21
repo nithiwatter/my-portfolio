@@ -8,15 +8,27 @@ import { Theme } from '../utils/theme-provider';
 type LinkProps = {
   children: React.ReactNode;
   href: string;
+  noNextLink?: boolean;
 };
 
-function Link({ children, href }: LinkProps) {
+function Link({ children, href, noNextLink }: LinkProps) {
+  if (!noNextLink) {
+    return (
+      <NextLink href={href}>
+        <a className="underlined after:underlined-after after:hover:scale-x-100 after:focus:scale-100">
+          {children}
+        </a>
+      </NextLink>
+    );
+  }
+
   return (
-    <NextLink href={href}>
-      <a className="underlined after:underlined-after after:hover:scale-x-100 after:focus:scale-100">
-        {children}
-      </a>
-    </NextLink>
+    <a
+      className="underlined after:underlined-after after:hover:scale-x-100 after:focus:scale-100"
+      href={href}
+    >
+      {children}
+    </a>
   );
 }
 
@@ -40,11 +52,14 @@ function Navbar() {
             <Link href="/">Works</Link>
           </li>
           <li>
-            <Link href="/">Contact</Link>
+            <Link href="https://github.com/nithiwatter/my-portfolio" noNextLink>
+              Source
+            </Link>
           </li>
         </ul>
 
         <button
+          title="Toggle theme"
           onClick={() => {
             setTheme(theme === Theme.Light ? Theme.Dark : Theme.Light);
           }}

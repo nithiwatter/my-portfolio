@@ -1,5 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faGithub,
+  faLinkedin,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons';
 
 import {
   AnimatedText,
@@ -190,6 +196,43 @@ function AnimeSection() {
   );
 }
 
+function OnTheWebSection() {
+  return (
+    <div className="space-y-4">
+      <h2 className="underline underline-offset-4">On the Web</h2>
+      <div className="space-y-2">
+        <div className="flex items-center space-x-2">
+          <a
+            className="underlined after:underlined-after text-lg font-semibold after:hover:scale-x-100 after:focus:scale-100"
+            href="https://github.com/nithiwatter"
+          >
+            GitHub
+          </a>
+          <FontAwesomeIcon icon={faGithub} size="lg" />
+        </div>
+        <div className="flex items-center space-x-2">
+          <a
+            className="underlined after:underlined-after text-lg font-semibold after:hover:scale-x-100 after:focus:scale-100"
+            href="https://www.linkedin.com/in/nithiwat-seesillapachai-71b82b5b/"
+          >
+            LinkedIn
+          </a>
+          <FontAwesomeIcon icon={faLinkedin} size="lg" />
+        </div>
+        <div className="flex items-center space-x-2">
+          <a
+            className="underlined after:underlined-after text-lg font-semibold after:hover:scale-x-100 after:focus:scale-100"
+            href="https://twitter.com/nithiwatter"
+          >
+            Twitter
+          </a>
+          <FontAwesomeIcon icon={faTwitter} size="lg" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Home() {
   return (
     <div className="space-y-8">
@@ -199,6 +242,7 @@ function Home() {
           <AboutSection />
           <LanguagesSection />
           <AnimeSection />
+          <OnTheWebSection />
         </div>
       </div>
       <div>Footer</div>

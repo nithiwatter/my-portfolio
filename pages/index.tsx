@@ -8,6 +8,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 import {
+  AnimatedOnEnter,
   AnimatedText,
   AnimatedTexts,
   ColorText,
@@ -239,15 +240,17 @@ function Home() {
   return (
     <div className="space-y-8">
       <HomeHeroSection />
-      <div className="flex justify-center">
-        <div className="w-1/2 space-y-8">
-          <AboutSection />
-          <LanguagesSection />
-          <AnimeSection />
-          <OnTheWebSection />
+      <AnimatedOnEnter>
+        <div className="flex justify-center">
+          <div className="w-1/2 space-y-8">
+            <AboutSection />
+            <LanguagesSection />
+            <AnimeSection />
+            <OnTheWebSection />
+          </div>
         </div>
-      </div>
-      <div>Footer</div>
+        <div>Footer</div>
+      </AnimatedOnEnter>
     </div>
   );
 }

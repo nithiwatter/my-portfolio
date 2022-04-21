@@ -1,6 +1,11 @@
 import React from 'react';
 import { animated, config, useSpring, useTrail } from 'react-spring';
 import { useHover } from '@use-gesture/react';
+import { useInView } from 'react-intersection-observer';
+
+type AnimatedOnEnterProps = {
+  children: React.ReactNode;
+};
 
 type AnimatedTextProps = {
   children: React.ReactNode;
@@ -18,14 +23,32 @@ type ColorTextProps = {
   children: React.ReactNode;
 };
 
+function AnimatedOnEnter({ children }: AnimatedOnEnterProps) {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });
+  const styles = useSpring({
+    config: config.slow,
+    opacity: inView ? 1 : 0,
+    y: inView ? 0 : 40,
+    from: { opacity: 0, y: 40 },
+  });
+
+  return (
+    <animated.div ref={ref} style={styles}>
+      {children}
+    </animated.div>
+  );
+}
+
 function AnimatedText({ children }: AnimatedTextProps) {
-  const style = useSpring({
+  const styles = useSpring({
     config: config.gentle,
     opacity: 1,
     from: { opacity: 0 },
   });
 
-  return <animated.div style={style}>{children}</animated.div>;
+  return <animated.div style={styles}>{children}</animated.div>;
 }
 
 function AnimatedTexts({ children }: AnimatedTextsProps) {
@@ -72,6 +95,7 @@ function AnimatedCard({ children }: AnimatedCardProps) {
 
 function ColorText({ children }: ColorTextProps) {
   const styles = useSpring({
+    config: config.gentle,
     loop: true,
     to: [{ color: '#f9a8d4' }, { color: '#9333ea' }],
     from: { color: '#ef4444' },
@@ -80,4 +104,10 @@ function ColorText({ children }: ColorTextProps) {
   return <animated.div style={styles}>{children}</animated.div>;
 }
 
-export { AnimatedText, AnimatedTexts, AnimatedCard, ColorText };
+export {
+  AnimatedOnEnter,
+  AnimatedText,
+  AnimatedTexts,
+  AnimatedCard,
+  ColorText,
+};

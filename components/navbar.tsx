@@ -1,5 +1,7 @@
 import React from 'react';
+import clsx from 'clsx';
 import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import { MoonIcon, SunIcon } from '@heroicons/react/outline';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,14 +12,21 @@ import { Theme } from '../utils/theme-provider';
 type LinkProps = {
   children: React.ReactNode;
   href: string;
+  active?: boolean;
   noNextLink?: boolean;
 };
 
-function Link({ children, href, noNextLink }: LinkProps) {
+function Link({ children, href, active, noNextLink }: LinkProps) {
   if (!noNextLink) {
     return (
       <NextLink href={href}>
-        <a className="underlined after:underlined-after after:hover:scale-x-100 after:focus:scale-100">
+        <a
+          className={clsx('underlined', {
+            'after:underlined-after after:hover:scale-x-100 after:focus:scale-100':
+              !active,
+            'active after:active-after': active,
+          })}
+        >
           {children}
         </a>
       </NextLink>
@@ -36,6 +45,7 @@ function Link({ children, href, noNextLink }: LinkProps) {
 
 function Navbar() {
   const [mounted, setMounted] = React.useState(false);
+  const router = useRouter();
   const { theme: chosenTheme, systemTheme, setTheme } = useTheme();
 
   const theme = chosenTheme === 'system' ? systemTheme : chosenTheme;
@@ -48,16 +58,26 @@ function Navbar() {
       <div className="flex w-1/2 items-center justify-between p-4">
         <ul className="flex space-x-8">
           <li>
-            <Link href="/">Home</Link>
+            <Link href="/" active={router.asPath === '/'}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link href="/works">Works</Link>
+            <Link href="/works" active={router.asPath === '/works'}>
+              Works
+            </Link>
           </li>
           <li>
-            <Link href="/posts">Posts</Link>
+            <Link href="/posts" active={router.asPath === '/posts'}>
+              Posts
+            </Link>
           </li>
           <li className="flex items-end space-x-2">
-            <Link href="https://github.com/nithiwatter/my-portfolio" noNextLink>
+            <Link
+              href="https://github.com/nithiwatter/my-portfolio"
+              active={false}
+              noNextLink
+            >
               Source
             </Link>
             <FontAwesomeIcon icon={faGithubAlt} size="lg" />

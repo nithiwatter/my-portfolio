@@ -29,6 +29,14 @@
 }
 
 @layer components {
+  .active {
+    @apply text-black dark:text-white;
+  }
+
+  .active-after {
+    @apply absolute left-0 block h-0.5 w-full bg-black dark:bg-white;
+  }
+
   .underlined {
     @apply relative whitespace-nowrap no-underline;
   }

@@ -80,7 +80,7 @@ function AnimatedCard({ children }: AnimatedCardProps) {
   }));
   const bind = useHover(({ hovering }) => {
     if (hovering) {
-      api.start({ scale: 1.1 });
+      api.start({ scale: 1.2 });
     } else {
       api.start({ scale: 1 });
     }

@@ -14,10 +14,26 @@ import steinsGate from '../public/images/steins;gate.jpg';
 import aSilentVoice from '../public/images/a silent voice.jpg';
 
 const animes = [
-  { src: haikyuu, name: 'Haikyuu!!' },
-  { src: gintama, name: 'Gintama' },
-  { src: steinsGate, name: 'Steins;Gate' },
-  { src: aSilentVoice, name: 'Koe no Katachi' },
+  {
+    src: haikyuu,
+    name: 'Haikyuu!!',
+    href: 'https://myanimelist.net/anime/32935/Haikyuu__Karasuno_Koukou_vs_Shiratorizawa_Gakuen_Koukou',
+  },
+  {
+    src: gintama,
+    name: 'Gintama',
+    href: 'https://myanimelist.net/anime/28977/Gintama%C2%B0',
+  },
+  {
+    src: steinsGate,
+    name: 'Steins;Gate',
+    href: 'https://myanimelist.net/anime/9253/Steins_Gate',
+  },
+  {
+    src: aSilentVoice,
+    name: 'Koe no Katachi',
+    href: 'https://myanimelist.net/anime/28851/Koe_no_Katachi',
+  },
 ];
 
 function HomeHeroSection() {
@@ -104,13 +120,36 @@ function AnimeSection() {
         Animes, Mangas, and Light Novels
       </h2>
 
-      <div className="grid grid-cols-4 gap-2">
-        {animes.map((el, index) => (
-          <div key={index}>
-            <Card src={el.src} />
-            <p className="text-center">{el.name}</p>
-          </div>
-        ))}
+      <div>
+        <h3>Favorite Animes:</h3>
+        <div className="grid grid-cols-4 gap-2">
+          {animes.map((el, index) => (
+            <a
+              key={index}
+              href={el.href}
+              className="rounded-md focus:ring-2 focus:ring-offset-2"
+            >
+              <Card src={el.src} />
+              <p className="text-center">{el.name}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h3>Favorite Mangas:</h3>
+        <div className="grid grid-cols-4 gap-2">
+          {animes.map((el, index) => (
+            <a
+              key={index}
+              href={el.href}
+              className="rounded-md focus:ring-2 focus:ring-offset-2"
+            >
+              <Card src={el.src} />
+              <p className="text-center">{el.name}</p>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );

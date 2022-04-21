@@ -38,7 +38,7 @@
   }
 
   .model-background {
-    @apply h-[80vh];
+    @apply h-[90vh];
   }
 
   .color-text {

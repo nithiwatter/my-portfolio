@@ -92,14 +92,23 @@ const socials = [
 function HomeHeroSection() {
   return (
     <div className="relative h-[100vh]">
-      <div className="absolute bottom-8 w-full space-y-8">
+      <div className="absolute bottom-8 left-0 right-0 ml-auto mr-auto w-3/4 space-y-4 sm:w-full sm:space-y-8">
         <div className="flex items-center justify-center ">
           <div className="rounded-md bg-gray-700/10 p-4 backdrop-blur dark:bg-gray-100/10">
             <AnimatedText>
-              <p>
+              <p className="text-center">
                 {
-                  "Hello, I am a Duke CS/ECON '22 and an incoming software engineer at Cohere!"
+                  "Hello, I am a Duke CS/ECON '22 and an incoming software engineer at "
                 }
+                <span>
+                  <a
+                    href="https://cohere.io/"
+                    className="font-bold text-slate-800 decoration-2 underline-offset-2 hover:underline focus:underline dark:text-gray-200"
+                  >
+                    Cohere
+                  </a>
+                </span>
+                !
               </p>
             </AnimatedText>
           </div>
@@ -108,12 +117,14 @@ function HomeHeroSection() {
         <div className="flex items-center justify-center space-x-6">
           <div className="space-y-2">
             <AnimatedTexts>
-              <h1 className="text-center">Nithiwat Seesillapachai (Ter)</h1>
+              <h1 className="text-center text-2xl sm:text-4xl">
+                Nithiwat Seesillapachai (Ter)
+              </h1>
               <h3 className="text-center">Software Engineer / Weeb</h3>
             </AnimatedTexts>
           </div>
 
-          <div className="relative h-40 w-40 overflow-hidden rounded-full">
+          <div className="relative hidden h-24 w-24 overflow-hidden rounded-full shadow-sm ring-2 ring-white sm:block lg:h-40 lg:w-40">
             <Image
               alt="profile"
               src={profilePic}

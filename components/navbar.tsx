@@ -66,7 +66,7 @@ function NavMenu({ router }: NavMenuProps) {
   return (
     <Menu>
       <MenuButton title="Navigation" className="base-button mr-2 sm:hidden">
-        <div className="m-2 flex h-8 w-8 items-center justify-center text-white ">
+        <div className="m-2 flex h-8 w-8 items-center justify-center text-white dark:text-slate-800">
           <FontAwesomeIcon icon={faBars} size="lg" />
         </div>
       </MenuButton>
@@ -160,7 +160,7 @@ function Navbar() {
           {!mounted ? (
             <div className="m-2 h-8 w-8" />
           ) : theme === Theme.Light ? (
-            <div className="m-2 flex h-8 w-8 items-center justify-center text-white ">
+            <div className="m-2 flex h-8 w-8 items-center justify-center text-white">
               <FontAwesomeIcon icon={faMoon} size="lg" />
             </div>
           ) : (

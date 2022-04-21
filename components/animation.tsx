@@ -1,11 +1,16 @@
 import React from 'react';
 import { animated, config, useSpring, useTrail } from 'react-spring';
+import { useHover } from '@use-gesture/react';
 
 type AnimatedTextProps = {
   children: React.ReactNode;
 };
 
 type AnimatedTextsProps = {
+  children: React.ReactNode;
+};
+
+type AnimatedCardProps = {
   children: React.ReactNode;
 };
 
@@ -41,4 +46,24 @@ function AnimatedTexts({ children }: AnimatedTextsProps) {
   );
 }
 
-export { AnimatedText, AnimatedTexts };
+function AnimatedCard({ children }: AnimatedCardProps) {
+  const [style, api] = useSpring(() => ({
+    config: config.gentle,
+    scale: 1,
+  }));
+  const bind = useHover(({ hovering, dragging }) => {
+    if (hovering) {
+      api.start({ scale: 1.1 });
+    } else {
+      api.start({ scale: 1 });
+    }
+  });
+
+  return (
+    <animated.div {...bind()} style={style}>
+      {children}
+    </animated.div>
+  );
+}
+
+export { AnimatedText, AnimatedTexts, AnimatedCard };

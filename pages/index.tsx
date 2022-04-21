@@ -1,8 +1,24 @@
 import React from 'react';
 import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 
-import { AnimatedText, AnimatedTexts } from '../components/animation';
+import {
+  AnimatedText,
+  AnimatedTexts,
+  AnimatedCard,
+} from '../components/animation';
 import profilePic from '../public/images/hayasaka-profile.jpg';
+import haikyuu from '../public/images/haikyuu.jpg';
+import gintama from '../public/images/gintama.jpg';
+import steinsGate from '../public/images/steins;gate.jpg';
+import aSilentVoice from '../public/images/a silent voice.jpg';
+
+const animes = [
+  { src: haikyuu, name: 'Haikyuu!!' },
+  { src: gintama, name: 'Gintama' },
+  { src: steinsGate, name: 'Steins;Gate' },
+  { src: aSilentVoice, name: 'Koe no Katachi' },
+];
 
 function HomeHeroSection() {
   return (
@@ -67,7 +83,7 @@ function LanguagesSection() {
       <h2 className="underline underline-offset-4">
         Languages and Technologies
       </h2>
-      <ul className="list-disc">
+      <ul className="list-inside list-disc">
         <li>JavaScript / TypeScript</li>
         <li>Python</li>
         <li>HTML / CSS</li>
@@ -81,6 +97,46 @@ function LanguagesSection() {
   );
 }
 
+function AnimeSection() {
+  return (
+    <div className="space-y-4">
+      <h2 className="underline underline-offset-4">
+        Animes, Mangas, and Light Novels
+      </h2>
+
+      <div className="grid grid-cols-4 gap-2">
+        {animes.map((el, index) => (
+          <div key={index}>
+            <Card src={el.src} />
+            <p className="text-center">{el.name}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+type CardProps = {
+  src: StaticImageData;
+};
+
+function Card({ src }: CardProps) {
+  return (
+    <AnimatedCard>
+      <div className="relative aspect-[2/3] w-full overflow-hidden rounded-md">
+        <Image
+          alt="haikyuu-anime"
+          src={src}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center center"
+          placeholder="blur"
+        />
+      </div>
+    </AnimatedCard>
+  );
+}
+
 function Home() {
   return (
     <div className="space-y-8">
@@ -89,8 +145,10 @@ function Home() {
         <div className="w-1/2 space-y-8">
           <AboutSection />
           <LanguagesSection />
+          <AnimeSection />
         </div>
       </div>
+      <div>Footer</div>
     </div>
   );
 }

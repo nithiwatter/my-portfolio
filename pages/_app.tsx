@@ -6,13 +6,11 @@ import Layout from '../components/layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="bg-slate-100 dark:bg-slate-800">
-      <ThemeProvider attribute="class">
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
-    </div>
+    <ThemeProvider attribute="class">
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
   );
 }
 

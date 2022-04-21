@@ -23,7 +23,8 @@
     @apply text-slate-800 dark:text-gray-200;
   }
 
-  button {
+  button,
+  button.base-button {
     @apply rounded-md bg-slate-600 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:bg-slate-400 dark:hover:bg-slate-500;
   }
 }
@@ -51,5 +52,18 @@
 
   .color-text {
     @apply text-inherit dark:text-inherit;
+  }
+
+  .menu-list {
+    @apply relative z-20 w-40 rounded-md border-none p-1 shadow-lg ring-1 ring-black ring-opacity-5;
+  }
+
+  [data-reach-menu-item],
+  a[data-reach-menu-item] {
+    @apply rounded-md p-2 text-black;
+  }
+
+  [data-reach-menu-item][data-selected] {
+    @apply bg-slate-800 text-white;
   }
 }

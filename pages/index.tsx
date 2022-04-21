@@ -1,17 +1,18 @@
 import React from 'react';
 import Image from 'next/image';
-import type { StaticImageData } from 'next/image';
 
-import {
-  AnimatedText,
-  AnimatedTexts,
-  AnimatedCard,
-} from '../components/animation';
+import { AnimatedText, AnimatedTexts } from '../components/animation';
+import { AnimeCard as Card } from '../components/card';
+
 import profilePic from '../public/images/hayasaka-profile.jpg';
 import haikyuu from '../public/images/haikyuu.jpg';
 import gintama from '../public/images/gintama.jpg';
 import steinsGate from '../public/images/steins;gate.jpg';
 import aSilentVoice from '../public/images/a silent voice.jpg';
+import onePiece from '../public/images/one piece.jpg';
+import slamDunk from '../public/images/slam dunk.jpg';
+import kaguya from '../public/images/kaguya.jpg';
+import jujutsuKaisen from '../public/images/jujutsu kaisen.jpg';
 
 const animes = [
   {
@@ -33,6 +34,29 @@ const animes = [
     src: aSilentVoice,
     name: 'Koe no Katachi',
     href: 'https://myanimelist.net/anime/28851/Koe_no_Katachi',
+  },
+];
+
+const mangas = [
+  {
+    src: onePiece,
+    name: 'One Piece',
+    href: 'https://myanimelist.net/manga/13/One_Piece',
+  },
+  {
+    src: slamDunk,
+    name: 'Slam Dunk',
+    href: 'https://myanimelist.net/manga/51/Slam_Dunk',
+  },
+  {
+    src: kaguya,
+    name: 'Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen',
+    href: 'https://myanimelist.net/manga/90125/Kaguya-sama_wa_Kokurasetai__Tensai-tachi_no_Renai_Zunousen',
+  },
+  {
+    src: jujutsuKaisen,
+    name: 'Jujutsu Kaisen',
+    href: 'https://myanimelist.net/manga/113138/Jujutsu_Kaisen',
   },
 ];
 
@@ -116,9 +140,7 @@ function LanguagesSection() {
 function AnimeSection() {
   return (
     <div className="space-y-4">
-      <h2 className="underline underline-offset-4">
-        Animes, Mangas, and Light Novels
-      </h2>
+      <h2 className="underline underline-offset-4">Animes and Mangas</h2>
 
       <div>
         <h3>Favorite Animes:</h3>
@@ -129,7 +151,7 @@ function AnimeSection() {
               href={el.href}
               className="rounded-md focus:ring-2 focus:ring-offset-2"
             >
-              <Card src={el.src} />
+              <Card src={el.src} alt={el.name} />
               <p className="text-center">{el.name}</p>
             </a>
           ))}
@@ -139,40 +161,19 @@ function AnimeSection() {
       <div>
         <h3>Favorite Mangas:</h3>
         <div className="grid grid-cols-4 gap-2">
-          {animes.map((el, index) => (
+          {mangas.map((el, index) => (
             <a
               key={index}
               href={el.href}
               className="rounded-md focus:ring-2 focus:ring-offset-2"
             >
-              <Card src={el.src} />
+              <Card src={el.src} alt={el.name} />
               <p className="text-center">{el.name}</p>
             </a>
           ))}
         </div>
       </div>
     </div>
-  );
-}
-
-type CardProps = {
-  src: StaticImageData;
-};
-
-function Card({ src }: CardProps) {
-  return (
-    <AnimatedCard>
-      <div className="relative aspect-[2/3] w-full overflow-hidden rounded-md">
-        <Image
-          alt="haikyuu-anime"
-          src={src}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center center"
-          placeholder="blur"
-        />
-      </div>
-    </AnimatedCard>
   );
 }
 

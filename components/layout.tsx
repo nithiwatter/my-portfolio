@@ -14,7 +14,7 @@ function Layout({ children }: LayoutProps) {
       <div className="model-background absolute top-0 w-full">
         <ModelLoader />
       </div>
-      <div className="relative z-10 min-h-[200vh]">{children}</div>
+      {children}
     </div>
   );
 }

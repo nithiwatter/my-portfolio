@@ -185,7 +185,7 @@ function AnimeSection() {
 
       <div>
         <h3>Favorite Animes:</h3>
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
           {animes.map((el, index) => (
             <a
               key={index}
@@ -201,7 +201,7 @@ function AnimeSection() {
 
       <div>
         <h3>Favorite Mangas:</h3>
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
           {mangas.map((el, index) => (
             <a
               key={index}
@@ -253,14 +253,13 @@ function Home() {
       <HomeHeroSection />
       <AnimatedOnEnter>
         <div className="flex justify-center">
-          <div className="w-1/2 space-y-8">
+          <div className="w-3/4 space-y-8 sm:w-1/2">
             <AboutSection />
             <LanguagesSection />
             <AnimeSection />
             <OnTheWebSection />
           </div>
         </div>
-        <div>Footer</div>
       </AnimatedOnEnter>
     </div>
   );

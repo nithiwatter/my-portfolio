@@ -9,7 +9,7 @@ type LayoutProps = {
 
 function Layout({ children }: LayoutProps) {
   return (
-    <div>
+    <div className="pb-12">
       <NavBar />
       <div className="model-background absolute top-0 w-full">
         <ModelLoader />

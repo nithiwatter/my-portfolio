@@ -3,8 +3,8 @@ import clsx from 'clsx';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
-import { MoonIcon, SunIcon } from '@heroicons/react/outline';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import { faGithubAlt } from '@fortawesome/free-brands-svg-icons';
 
 import { Theme } from '../utils/theme-provider';
@@ -93,9 +93,13 @@ function Navbar() {
           {!mounted ? (
             <div className="m-2 h-8 w-8" />
           ) : theme === Theme.Light ? (
-            <SunIcon className="m-2 h-8 w-8 text-white" />
+            <div className="m-2 flex h-8 w-8 items-center justify-center text-white ">
+              <FontAwesomeIcon icon={faMoon} size="lg" />
+            </div>
           ) : (
-            <MoonIcon className="m-2 h-8 w-8 text-slate-800" />
+            <div className="m-2 flex h-8 w-8 items-center justify-center text-slate-800">
+              <FontAwesomeIcon icon={faSun} size="lg" />
+            </div>
           )}
         </button>
       </div>

@@ -78,7 +78,7 @@ function AnimatedCard({ children }: AnimatedCardProps) {
     config: config.gentle,
     scale: 1,
   }));
-  const bind = useHover(({ hovering, dragging }) => {
+  const bind = useHover(({ hovering }) => {
     if (hovering) {
       api.start({ scale: 1.1 });
     } else {

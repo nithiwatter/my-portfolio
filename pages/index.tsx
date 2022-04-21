@@ -1,7 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { AnimatedText, AnimatedTexts } from '../components/animation';
+import {
+  AnimatedText,
+  AnimatedTexts,
+  ColorText,
+} from '../components/animation';
 import { AnimeCard as Card } from '../components/card';
 
 import profilePic from '../public/images/hayasaka-profile.jpg';
@@ -129,6 +133,7 @@ function LanguagesSection() {
         <li>HTML / CSS</li>
         <li>React / Redux / ReactQuery / CRA / Next.js</li>
         <li>Node.js / Express</li>
+        <li>PyTorch / Deep Learning / Machine Learning</li>
         <li>SQL / MongoDB</li>
         <li>Docker / Git</li>
         <li>English / Thai / Japanese (beginner)</li>
@@ -140,7 +145,7 @@ function LanguagesSection() {
 function AnimeSection() {
   return (
     <div className="space-y-4">
-      <h2 className="underline underline-offset-4">Animes and Mangas</h2>
+      <h2 className="underline underline-offset-4">Hobbies</h2>
 
       <div>
         <h3>Favorite Animes:</h3>
@@ -172,6 +177,14 @@ function AnimeSection() {
             </a>
           ))}
         </div>
+      </div>
+
+      <div>
+        <ColorText>
+          <h2 className="color-text text-center">
+            {"If you can't already tell, I love Vtubers!"}
+          </h2>
+        </ColorText>
       </div>
     </div>
   );

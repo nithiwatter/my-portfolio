@@ -14,6 +14,10 @@ type AnimatedCardProps = {
   children: React.ReactNode;
 };
 
+type ColorTextProps = {
+  children: React.ReactNode;
+};
+
 function AnimatedText({ children }: AnimatedTextProps) {
   const style = useSpring({
     config: config.gentle,
@@ -35,9 +39,9 @@ function AnimatedTexts({ children }: AnimatedTextsProps) {
 
   return (
     <>
-      {trail.map((style, index) => {
+      {trail.map((styles, index) => {
         return (
-          <animated.div key={index} style={style}>
+          <animated.div key={index} style={styles}>
             {items[index]}
           </animated.div>
         );
@@ -47,7 +51,7 @@ function AnimatedTexts({ children }: AnimatedTextsProps) {
 }
 
 function AnimatedCard({ children }: AnimatedCardProps) {
-  const [style, api] = useSpring(() => ({
+  const [styles, api] = useSpring(() => ({
     config: config.gentle,
     scale: 1,
   }));
@@ -60,10 +64,20 @@ function AnimatedCard({ children }: AnimatedCardProps) {
   });
 
   return (
-    <animated.div {...bind()} style={style}>
+    <animated.div {...bind()} style={styles}>
       {children}
     </animated.div>
   );
 }
 
-export { AnimatedText, AnimatedTexts, AnimatedCard };
+function ColorText({ children }: ColorTextProps) {
+  const styles = useSpring({
+    loop: true,
+    to: [{ color: '#f9a8d4' }, { color: '#9333ea' }],
+    from: { color: '#ef4444' },
+  });
+
+  return <animated.div style={styles}>{children}</animated.div>;
+}
+
+export { AnimatedText, AnimatedTexts, AnimatedCard, ColorText };

@@ -40,4 +40,8 @@
   .model-background {
     @apply h-[80vh];
   }
+
+  .color-text {
+    @apply text-inherit dark:text-inherit;
+  }
 }

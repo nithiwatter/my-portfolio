@@ -218,7 +218,12 @@ function AnimeSection() {
       <div>
         <ColorText>
           <h2 className="color-text text-center">
-            {"If you can't already tell, I love Vtubers!"}
+            <a
+              href="https://www.youtube.com/channel/UCR6qhsLpn62WVxCBK1dkLow"
+              className="inherit rounded-md focus:ring-2 focus:ring-offset-2"
+            >
+              {"If you can't already tell, I love Vtubers!"}
+            </a>
           </h2>
         </ColorText>
       </div>

@@ -7,6 +7,10 @@
     @apply text-slate-600 hover:text-black focus:text-black focus:outline-none dark:text-slate-300 dark:hover:text-white dark:focus:text-white;
   }
 
+  a.inherit {
+    @apply text-inherit;
+  }
+
   h1 {
     @apply text-4xl font-bold text-slate-800 dark:text-gray-200;
   }

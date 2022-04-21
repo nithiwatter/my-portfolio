@@ -2,6 +2,8 @@ import React from 'react';
 import NextLink from 'next/link';
 import { useTheme } from 'next-themes';
 import { MoonIcon, SunIcon } from '@heroicons/react/outline';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithubAlt } from '@fortawesome/free-brands-svg-icons';
 
 import { Theme } from '../utils/theme-provider';
 
@@ -51,10 +53,11 @@ function Navbar() {
           <li>
             <Link href="/">Works</Link>
           </li>
-          <li>
+          <li className="flex items-end space-x-2">
             <Link href="https://github.com/nithiwatter/my-portfolio" noNextLink>
               Source
             </Link>
+            <FontAwesomeIcon icon={faGithubAlt} size="lg" />
           </li>
         </ul>
 

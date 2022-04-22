@@ -103,6 +103,8 @@ function HomeHeroSection() {
                 <span>
                   <a
                     href="https://cohere.io/"
+                    target="_blank"
+                    rel="noreferrer"
                     className="font-bold text-slate-800 decoration-2 underline-offset-2 hover:underline focus:underline dark:text-gray-200"
                   >
                     Cohere
@@ -206,6 +208,8 @@ function AnimeSection() {
             <a
               key={index}
               href={el.href}
+              target="_blank"
+              rel="noreferrer"
               className="rounded-md focus:ring-2 focus:ring-offset-2"
             >
               <Card src={el.src} alt={el.name} />
@@ -241,6 +245,8 @@ function OnTheWebSection() {
             <a
               className="underlined after:underlined-after text-lg font-semibold after:hover:scale-x-100 after:focus:scale-100"
               href={ele.href}
+              target="_blank"
+              rel="noreferrer"
             >
               {ele.name}
             </a>

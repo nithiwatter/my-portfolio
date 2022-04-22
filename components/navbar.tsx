@@ -57,6 +57,8 @@ function Link({ children, href, active, noNextLink }: LinkProps) {
     <a
       className="underlined after:underlined-after after:hover:scale-x-100 after:focus:scale-100"
       href={href}
+      target="_blank"
+      rel="noreferrer"
     >
       {children}
     </a>
@@ -96,7 +98,12 @@ function NavMenu({ router }: NavMenuProps) {
           />
           Posts
         </MenuItem>
-        <MenuLink as="a" href="https://github.com/nithiwatter/my-portfolio">
+        <MenuLink
+          as="a"
+          href="https://github.com/nithiwatter/my-portfolio"
+          target="_blank"
+          rel="noreferrer"
+        >
           <FontAwesomeIcon
             icon={faGithubAlt}
             size="1x"

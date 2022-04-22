@@ -18,7 +18,6 @@ const styles: { [key: string]: CSSProperties } = {
 };
 
 function ModelLoader() {
-  // const cameraRef = React.useRef<THREE.PerspectiveCamera>();
   const { mounted } = useCheckMounted();
 
   // prevent rendering three-js on server side (otherwise would cause hydration differences)

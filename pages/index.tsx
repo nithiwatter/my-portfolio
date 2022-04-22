@@ -235,7 +235,7 @@ function OnTheWebSection() {
   return (
     <div className="space-y-4">
       <h2 className="underline underline-offset-4">On the Web</h2>
-      <div className="flex items-center justify-between">
+      <div className="flex h-12 items-center justify-between">
         {socials.map((ele) => (
           <div key={ele.name} className="flex items-center space-x-2">
             <a

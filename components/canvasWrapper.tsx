@@ -56,7 +56,7 @@ function CanvasWrapper() {
       <ambientLight intensity={0.4} />
       <directionalLight position={[0, 4, 7.5]} intensity={0.5} />
       <Suspense fallback={null}>
-        <Model position={[0, -0.3, 0]} />
+        {/* <Model position={[0, -0.3, 0]} /> */}
         <OrbitControls />
         <ContactShadows
           position={[0, -0.3, 0]}

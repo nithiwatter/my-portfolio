@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "analyze": "cross-env ANALYZE=true next build"
+    "analyze": "cross-env ANALYZE=true next build",
+    "serve": "next build && next start"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -16,6 +17,7 @@
     "@fortawesome/react-fontawesome": "^0.1.18",
     "@next/bundle-analyzer": "^12.1.5",
     "@reach/menu-button": "^0.17.0",
+    "@react-spring/web": "^9.4.4",
     "@react-three/drei": "^8.20.2",
     "@react-three/fiber": "^7.0.27",
     "@use-gesture/react": "^10.2.11",
@@ -27,7 +29,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-intersection-observer": "^8.34.0",
-    "react-spring": "^9.4.4",
     "three": "^0.139.2"
   },
   "devDependencies": {

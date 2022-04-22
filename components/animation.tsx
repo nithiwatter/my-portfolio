@@ -1,5 +1,5 @@
 import React from 'react';
-import { animated, config, useSpring, useTrail } from 'react-spring';
+import { animated, config, useSpring, useTrail } from '@react-spring/web';
 import { useHover } from '@use-gesture/react';
 import { useInView } from 'react-intersection-observer';
 

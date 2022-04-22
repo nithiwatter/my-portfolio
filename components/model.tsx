@@ -161,5 +161,3 @@ export default function Model({ shadows = false, ...props }: ModelProps) {
     </group>
   );
 }
-
-useGLTF.preload('/models/hololive.glb');

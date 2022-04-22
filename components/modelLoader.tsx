@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
+import { Environment } from '@react-three/drei';
 
+import Model from './model';
 import { useCheckMounted } from '../utils/hooks';
 
 function ModelLoader() {
@@ -11,12 +13,10 @@ function ModelLoader() {
 
   return (
     <Canvas>
-      <ambientLight intensity={0.1} />
-      <directionalLight color="red" position={[0, 0, 5]} />
-      <mesh>
-        <boxGeometry />
-        <meshStandardMaterial />
-      </mesh>
+      <Suspense fallback={null}>
+        <Model />
+        <Environment preset="sunset" background />
+      </Suspense>
     </Canvas>
   );
 }

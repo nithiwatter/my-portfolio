@@ -1,7 +1,12 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 
 import NavBar from './navbar';
-import ModelLoader from './modelLoader';
+
+const ModelLoader = dynamic(() => import('./modelLoader'), {
+  loading: () => <p>loading...</p>,
+  ssr: false,
+});
 
 type LayoutProps = {
   children: React.ReactNode;

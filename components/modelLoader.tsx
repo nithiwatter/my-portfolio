@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Environment } from '@react-three/drei';
 
 import Model from './model';
 import { useCheckMounted } from '../utils/hooks';
@@ -15,7 +14,6 @@ function ModelLoader() {
     <Canvas>
       <Suspense fallback={null}>
         <Model />
-        <Environment preset="sunset" background />
       </Suspense>
     </Canvas>
   );

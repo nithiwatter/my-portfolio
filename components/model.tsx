@@ -45,7 +45,6 @@ type GLTFResult = GLTF & {
 export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
   const group = useRef();
   const { nodes, materials } = useGLTF('/models/hololive.glb') as GLTFResult;
-
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={0.39}>

@@ -26,7 +26,7 @@ function ModelLoader() {
 
   return (
     <>
-      <Canvas shadows>
+      <Canvas dpr={window.devicePixelRatio}>
         <CanvasWrapper />
       </Canvas>
       <Loader containerStyles={styles.container} innerStyles={styles.inner} />

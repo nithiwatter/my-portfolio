@@ -42,6 +42,8 @@ function CanvasWrapper() {
     }
   });
 
+  // Total Blocking Time - high (because the model is quite large (8 MB))
+  // Also, the shadows adds to the time
   return (
     <>
       <PerspectiveCamera

@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import NavBar from './navbar';
 
 const ModelLoader = dynamic(() => import('./modelLoader'), {
-  loading: () => <p>loading...</p>,
+  loading: () => null,
   ssr: false,
 });
 

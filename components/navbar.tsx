@@ -22,6 +22,7 @@ import {
   MenuLink,
 } from '@reach/menu-button';
 
+import { useCheckMounted } from '../utils/hooks';
 import { Theme } from '../utils/theme-provider';
 
 type LinkProps = {
@@ -109,14 +110,12 @@ function NavMenu({ router }: NavMenuProps) {
 }
 
 function Navbar() {
-  const [mounted, setMounted] = React.useState(false);
+  // When mounted on client, now we can show the UI
+  const { mounted } = useCheckMounted();
   const router = useRouter();
   const { theme: chosenTheme, systemTheme, setTheme } = useTheme();
 
   const theme = chosenTheme === 'system' ? systemTheme : chosenTheme;
-
-  // When mounted on client, now we can show the UI
-  React.useEffect(() => setMounted(true), []);
 
   return (
     <nav className="fixed top-0 z-10 flex w-full justify-center bg-slate-100/80 backdrop-blur dark:bg-slate-800/80">

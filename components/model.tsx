@@ -46,7 +46,7 @@ type ModelProps = {
   shadows?: boolean;
 } & JSX.IntrinsicElements['group'];
 
-export default function Model({ shadows, ...props }: ModelProps) {
+export default function Model({ shadows = false, ...props }: ModelProps) {
   const group = useRef();
   const { nodes, materials } = useGLTF('/models/hololive.glb') as GLTFResult;
 

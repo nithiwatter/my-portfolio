@@ -1,12 +1,11 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import {
+  ContactShadows,
   OrbitControls,
   Loader,
   PerspectiveCamera,
-  Plane,
 } from '@react-three/drei';
-// import * as THREE from 'three';
 
 import Model from './model';
 import { useCheckMounted } from '../utils/hooks';
@@ -27,23 +26,17 @@ function ModelLoader() {
           fov={75}
           zoom={1.4}
         />
-        <directionalLight
-          intensity={0.5}
-          castShadow
-          shadow-mapSize-height={512}
-          shadow-mapSize-width={512}
-        />
-        <Plane
-          receiveShadow
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[0, -0.3, 0]}
-          args={[1000, 1000]}
-        >
-          <meshStandardMaterial attach="material" color="white" />
-        </Plane>
+        <ambientLight intensity={0.4} />
+        <directionalLight position={[0, 4, 7.5]} intensity={0.5} />
         <Suspense fallback={null}>
-          <Model shadows position={[0, -0.3, 0]} />
+          <Model position={[0, -0.3, 0]} />
           <OrbitControls />
+          <ContactShadows
+            position={[0, -0.3, 0]}
+            scale={7.5}
+            opacity={0.25}
+            frames={1}
+          />
         </Suspense>
       </Canvas>
       <Loader />

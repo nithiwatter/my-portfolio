@@ -42,7 +42,11 @@ type GLTFResult = GLTF & {
   };
 };
 
-export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
+type ModelProps = {
+  shadows?: boolean;
+} & JSX.IntrinsicElements['group'];
+
+export default function Model({ shadows, ...props }: ModelProps) {
   const group = useRef();
   const { nodes, materials } = useGLTF('/models/hololive.glb') as GLTFResult;
 
@@ -58,6 +62,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
               skeleton={nodes.Object_76.skeleton}
             />
             <skinnedMesh
+              castShadow={shadows}
               geometry={nodes.Object_77.geometry}
               material={materials.Hw_smolametex}
               skeleton={nodes.Object_77.skeleton}
@@ -70,6 +75,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
           >
             <primitive object={nodes._rootJoint_1} />
             <skinnedMesh
+              castShadow={shadows}
               geometry={nodes.Object_152.geometry}
               material={materials.HWSmolCalli}
               skeleton={nodes.Object_152.skeleton}
@@ -92,6 +98,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
           >
             <primitive object={nodes._rootJoint_2} />
             <skinnedMesh
+              castShadow={shadows}
               geometry={nodes.Object_236.geometry}
               material={materials.SmolGura}
               skeleton={nodes.Object_236.skeleton}
@@ -109,6 +116,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
           >
             <primitive object={nodes._rootJoint_3} />
             <skinnedMesh
+              castShadow={shadows}
               geometry={nodes.Object_317.geometry}
               material={materials.HW_SmolIna}
               skeleton={nodes.Object_317.skeleton}
@@ -126,6 +134,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
           >
             <primitive object={nodes._rootJoint_4} />
             <skinnedMesh
+              castShadow={shadows}
               geometry={nodes.Object_394.geometry}
               material={materials.HW_smolkiara}
               skeleton={nodes.Object_394.skeleton}
@@ -142,6 +151,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
             scale={[110.45, 110.46, 118.51]}
           >
             <mesh
+              castShadow={shadows}
               geometry={nodes.Kiara_parasol_HW_smolkiara_0.geometry}
               material={materials.HW_smolkiara}
             />

@@ -192,6 +192,8 @@ function AnimeSection() {
             <a
               key={index}
               href={el.href}
+              target="_blank"
+              rel="noreferrer"
               className="rounded-md focus:ring-2 focus:ring-offset-2"
             >
               <Card src={el.src} alt={el.name} />
@@ -224,6 +226,8 @@ function AnimeSection() {
           <h2 className="color-text text-center">
             <a
               href="https://www.youtube.com/channel/UCR6qhsLpn62WVxCBK1dkLow"
+              target="_blank"
+              rel="noreferrer"
               className="inherit rounded-md focus:ring-2 focus:ring-offset-2"
             >
               {"If you can't already tell, I love Vtubers!"}

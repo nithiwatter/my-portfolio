@@ -122,7 +122,7 @@ function HomeHeroSection() {
               <h1 className="text-center text-2xl sm:text-4xl">
                 Nithiwat Seesillapachai (Ter)
               </h1>
-              <h3 className="text-center">Software Engineer / Weeb</h3>
+              <h2 className="text-center">Software Engineer / Weeb</h2>
             </AnimatedTexts>
           </div>
 

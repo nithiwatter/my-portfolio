@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import dynamic from 'next/dynamic';
 
 import NavBar from './navbar';
@@ -14,13 +15,19 @@ type LayoutProps = {
 
 function Layout({ children }: LayoutProps) {
   return (
-    <div className="pb-12">
-      <NavBar />
-      <div className="model-background absolute top-0 z-0 w-full">
-        <ModelLoader />
+    <>
+      <Head>
+        <meta name="description" content="Nithiwat's homepage" />
+        <title>Nithiwat Seesillapachai (Ter) - Portfolio Website</title>
+      </Head>
+      <div className="pb-12">
+        <NavBar />
+        <div className="model-background absolute top-0 z-0 w-full">
+          <ModelLoader />
+        </div>
+        {children}
       </div>
-      {children}
-    </div>
+    </>
   );
 }
 

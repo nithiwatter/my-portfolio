@@ -7,7 +7,7 @@ import {
 } from '@react-three/drei';
 import * as THREE from 'three';
 
-import Model from './model';
+import Model from './compressedModel';
 
 const initialPosition: [x: number, y: number, z: number] = [0, 1, 3];
 

@@ -10,6 +10,7 @@ import * as THREE from 'three';
 import Model from './compressedModel';
 
 const initialPosition: [x: number, y: number, z: number] = [0, 1, 3];
+const initialZoom = 0.6;
 
 function easeOutCirc(x: number) {
   return Math.sqrt(1 - Math.pow(x - 1, 4));
@@ -26,7 +27,7 @@ function CanvasWrapper() {
       const frame = frameRef.current;
 
       const rotSpeed = -easeOutCirc(frame / 120) * Math.PI * 20;
-      const zoomLevel = (0.6 / 100) * frame;
+      const zoomLevel = (0.4 / 100) * frame;
 
       camera.position.y = initialPosition[1];
       camera.position.x =
@@ -35,7 +36,7 @@ function CanvasWrapper() {
       camera.position.z =
         initialPosition[2] * Math.cos(rotSpeed) -
         initialPosition[0] * Math.sin(rotSpeed);
-      camera.zoom = 1 + zoomLevel;
+      camera.zoom = initialZoom + zoomLevel;
       camera.updateProjectionMatrix();
 
       frameRef.current += 1;
@@ -51,15 +52,15 @@ function CanvasWrapper() {
         makeDefault
         position={initialPosition}
         fov={75}
-        zoom={0.8}
+        zoom={initialZoom}
       />
       <ambientLight intensity={0.4} />
       <directionalLight position={[0, 4, 7.5]} intensity={0.5} />
       <Suspense fallback={null}>
-        <Model position={[0, -0.3, 0]} />
-        <OrbitControls />
+        <Model position={[0, -0.8, 0]} />
+        <OrbitControls autoRotate />
         <ContactShadows
-          position={[0, -0.3, 0]}
+          position={[0, -0.8, 0]}
           scale={7.5}
           opacity={0.25}
           frames={1}

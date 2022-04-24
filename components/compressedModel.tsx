@@ -3,9 +3,10 @@ import { useGLTF } from '@react-three/drei';
 
 type ModelProps = {
   position?: [number, number, number];
+  visible?: boolean;
 };
 
-function Model({ position = [0, 0, 0] }: ModelProps) {
+function Model({ position = [0, 0, 0], visible = false }: ModelProps) {
   // by default, this cannot use a static import syntax
   // still considered a static asset inside /public folder, but not a static
   // immutable asset in .next/static folder (no Cache-Control: public, max-age=31536000, immutable)
@@ -18,7 +19,9 @@ function Model({ position = [0, 0, 0] }: ModelProps) {
   const gltf = useGLTF('/models/mumei.glb');
 
   // easier to load model this way rather than using gltfjsx (could mess up the model)
-  return <primitive object={gltf.scene} position={position} />;
+  return (
+    <primitive object={gltf.scene} position={position} visible={visible} />
+  );
 }
 
 export default Model;

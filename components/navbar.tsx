@@ -29,6 +29,11 @@ import {
 // as they were applied first in the global styles in _app.tsx
 
 import { useCheckMounted } from '../utils/hooks';
+import {
+  AnimationState,
+  useAnimationState,
+  useAnimationDispatch,
+} from '../utils/animation-provider';
 import { Theme } from '../utils/theme-provider';
 
 type LinkProps = {
@@ -40,15 +45,6 @@ type LinkProps = {
 
 type NavMenuProps = {
   router: NextRouter;
-};
-
-type NavButtonProps = {
-  mounted: boolean;
-  title?: string;
-  theme: Theme;
-  onButton: IconDefinition;
-  offButton: IconDefinition;
-  callback: () => void;
 };
 
 function Link({ children, href, active, noNextLink }: LinkProps) {
@@ -131,38 +127,16 @@ function NavMenu({ router }: NavMenuProps) {
   );
 }
 
-function NavButton({
-  mounted,
-  title = 'no-title',
-  theme,
-  onButton,
-  offButton,
-  callback,
-}: NavButtonProps) {
-  return (
-    <button title={title} onClick={callback}>
-      {!mounted ? (
-        <div className="m-2 h-8 w-8" />
-      ) : theme === Theme.Light ? (
-        <div className="m-2 flex h-8 w-8 items-center justify-center text-white">
-          <FontAwesomeIcon icon={onButton} size="lg" />
-        </div>
-      ) : (
-        <div className="m-2 flex h-8 w-8 items-center justify-center text-slate-800">
-          <FontAwesomeIcon icon={offButton} size="lg" />
-        </div>
-      )}
-    </button>
-  );
-}
-
 function Navbar() {
   // When mounted on client, now we can show the UI
   const { mounted } = useCheckMounted();
+  const toggleAnimationState = useAnimationDispatch();
   const router = useRouter();
   const { theme: chosenTheme, systemTheme, setTheme } = useTheme();
+  const animationState = useAnimationState();
 
   const theme = chosenTheme === 'system' ? systemTheme : chosenTheme;
+  const visible = animationState === AnimationState.On;
 
   return (
     <nav className="fixed top-0 z-20 flex w-full justify-center bg-slate-100/80 backdrop-blur dark:bg-slate-800/80">
@@ -198,27 +172,38 @@ function Navbar() {
         <NavMenu router={router} />
 
         <div className="space-x-2">
-          <NavButton
-            mounted={mounted}
-            title="Toggle animation"
-            theme={theme}
-            onButton={faEyeSlash}
-            offButton={faEye}
-            callback={() => {
-              setTheme(theme === Theme.Light ? Theme.Dark : Theme.Light);
-            }}
-          />
+          <button title="Toggle animation" onClick={toggleAnimationState}>
+            {!mounted ? (
+              <div className="m-2 h-8 w-8" />
+            ) : animationState === AnimationState.On ? (
+              <div className="m-2 flex h-8 w-8 items-center justify-center text-white dark:text-slate-800">
+                <FontAwesomeIcon icon={faEyeSlash} size="lg" />
+              </div>
+            ) : (
+              <div className="m-2 flex h-8 w-8 items-center justify-center text-white dark:text-slate-800">
+                <FontAwesomeIcon icon={faEye} size="lg" />
+              </div>
+            )}
+          </button>
 
-          <NavButton
-            mounted={mounted}
+          <button
             title="Toggle theme"
-            theme={theme}
-            onButton={faMoon}
-            offButton={faSun}
-            callback={() => {
+            onClick={() => {
               setTheme(theme === Theme.Light ? Theme.Dark : Theme.Light);
             }}
-          />
+          >
+            {!mounted ? (
+              <div className="m-2 h-8 w-8" />
+            ) : theme === Theme.Light ? (
+              <div className="m-2 flex h-8 w-8 items-center justify-center text-white">
+                <FontAwesomeIcon icon={faMoon} size="lg" />
+              </div>
+            ) : (
+              <div className="m-2 flex h-8 w-8 items-center justify-center text-slate-800">
+                <FontAwesomeIcon icon={faSun} size="lg" />
+              </div>
+            )}
+          </button>
         </div>
       </div>
     </nav>

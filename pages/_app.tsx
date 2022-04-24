@@ -7,14 +7,17 @@ import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 import { config } from '@fortawesome/fontawesome-svg-core';
 
+import { AnimationProvider } from '../utils/animation-provider';
 import Layout from '../components/layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <AnimationProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </AnimationProvider>
     </ThemeProvider>
   );
 }

@@ -8,6 +8,7 @@ import {
 import * as THREE from 'three';
 
 import Model from './compressedModel';
+import { AnimationState, useAnimationState } from '../utils/animation-provider';
 
 const initialPosition: [x: number, y: number, z: number] = [0, 1, 3];
 const initialZoom = 0.6;
@@ -19,6 +20,8 @@ function easeOutCirc(x: number) {
 function CanvasWrapper() {
   const cameraRef = React.useRef<THREE.PerspectiveCamera>();
   const frameRef = React.useRef(0);
+  const animationState = useAnimationState();
+  const visible = animationState === AnimationState.On;
 
   useFrame(() => {
     // This function runs at the native refresh rate inside of a shared render-loop
@@ -57,13 +60,14 @@ function CanvasWrapper() {
       <ambientLight intensity={0.4} />
       <directionalLight position={[0, 4, 7.5]} intensity={0.5} />
       <Suspense fallback={null}>
-        <Model position={[0, -0.8, 0]} />
+        <Model position={[0, -0.8, 0]} visible={visible} />
         <OrbitControls autoRotate />
         <ContactShadows
           position={[0, -0.8, 0]}
           scale={7.5}
           opacity={0.25}
           frames={1}
+          visible={visible}
         />
       </Suspense>
     </>

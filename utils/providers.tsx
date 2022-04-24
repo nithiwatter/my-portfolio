@@ -28,7 +28,7 @@ function createSimpleContext<ContextType>(name: string) {
     return value;
   }
 
-  return { Provider: Context.Provider, useValue, useOptionalValue };
+  return { Context, Provider: Context.Provider, useValue, useOptionalValue };
 }
 
 export { createSimpleContext };

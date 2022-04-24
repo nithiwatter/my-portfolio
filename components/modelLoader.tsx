@@ -1,8 +1,9 @@
 import React, { CSSProperties } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Loader } from '@react-three/drei';
+import { Loader, useContextBridge } from '@react-three/drei';
 
 import CanvasWrapper from './canvasWrapper';
+import { AnimationStateContext } from '../utils/animation-provider';
 import { useCheckMounted } from '../utils/hooks';
 
 const styles: { [key: string]: CSSProperties } = {
@@ -18,6 +19,7 @@ const styles: { [key: string]: CSSProperties } = {
 };
 
 function ModelLoader() {
+  const ContextBridge = useContextBridge(AnimationStateContext);
   const { mounted } = useCheckMounted();
 
   // prevent rendering three-js on server side (otherwise would cause hydration differences)
@@ -26,7 +28,9 @@ function ModelLoader() {
   return (
     <>
       <Canvas dpr={window.devicePixelRatio} frameloop="demand">
-        <CanvasWrapper />
+        <ContextBridge>
+          <CanvasWrapper />
+        </ContextBridge>
       </Canvas>
       <Loader containerStyles={styles.container} innerStyles={styles.inner} />
     </>

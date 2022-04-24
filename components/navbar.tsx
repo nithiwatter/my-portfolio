@@ -136,7 +136,6 @@ function Navbar() {
   const animationState = useAnimationState();
 
   const theme = chosenTheme === 'system' ? systemTheme : chosenTheme;
-  const visible = animationState === AnimationState.On;
 
   return (
     <nav className="fixed top-0 z-20 flex w-full justify-center bg-slate-100/80 backdrop-blur dark:bg-slate-800/80">

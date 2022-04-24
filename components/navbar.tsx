@@ -21,6 +21,9 @@ import {
   MenuItem,
   MenuLink,
 } from '@reach/menu-button';
+// cannot import reach CSS here - it uses attribute selectors, which
+// have the same speficity as tailwind selectors - these would get overridden
+// as they were applied first in the global styles in _app.tsx
 
 import { useCheckMounted } from '../utils/hooks';
 import { Theme } from '../utils/theme-provider';

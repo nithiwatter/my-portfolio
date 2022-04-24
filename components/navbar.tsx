@@ -5,9 +5,12 @@ import { useRouter } from 'next/router';
 import type { NextRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   faBars,
   faBriefcase,
+  faEye,
+  faEyeSlash,
   faHome,
   faKeyboard,
   faMoon,
@@ -37,6 +40,15 @@ type LinkProps = {
 
 type NavMenuProps = {
   router: NextRouter;
+};
+
+type NavButtonProps = {
+  mounted: boolean;
+  title?: string;
+  theme: Theme;
+  onButton: IconDefinition;
+  offButton: IconDefinition;
+  callback: () => void;
 };
 
 function Link({ children, href, active, noNextLink }: LinkProps) {
@@ -119,6 +131,31 @@ function NavMenu({ router }: NavMenuProps) {
   );
 }
 
+function NavButton({
+  mounted,
+  title = 'no-title',
+  theme,
+  onButton,
+  offButton,
+  callback,
+}: NavButtonProps) {
+  return (
+    <button title={title} onClick={callback}>
+      {!mounted ? (
+        <div className="m-2 h-8 w-8" />
+      ) : theme === Theme.Light ? (
+        <div className="m-2 flex h-8 w-8 items-center justify-center text-white">
+          <FontAwesomeIcon icon={onButton} size="lg" />
+        </div>
+      ) : (
+        <div className="m-2 flex h-8 w-8 items-center justify-center text-slate-800">
+          <FontAwesomeIcon icon={offButton} size="lg" />
+        </div>
+      )}
+    </button>
+  );
+}
+
 function Navbar() {
   // When mounted on client, now we can show the UI
   const { mounted } = useCheckMounted();
@@ -160,24 +197,29 @@ function Navbar() {
 
         <NavMenu router={router} />
 
-        <button
-          title="Toggle theme"
-          onClick={() => {
-            setTheme(theme === Theme.Light ? Theme.Dark : Theme.Light);
-          }}
-        >
-          {!mounted ? (
-            <div className="m-2 h-8 w-8" />
-          ) : theme === Theme.Light ? (
-            <div className="m-2 flex h-8 w-8 items-center justify-center text-white">
-              <FontAwesomeIcon icon={faMoon} size="lg" />
-            </div>
-          ) : (
-            <div className="m-2 flex h-8 w-8 items-center justify-center text-slate-800">
-              <FontAwesomeIcon icon={faSun} size="lg" />
-            </div>
-          )}
-        </button>
+        <div className="space-x-2">
+          <NavButton
+            mounted={mounted}
+            title="Toggle animation"
+            theme={theme}
+            onButton={faEyeSlash}
+            offButton={faEye}
+            callback={() => {
+              setTheme(theme === Theme.Light ? Theme.Dark : Theme.Light);
+            }}
+          />
+
+          <NavButton
+            mounted={mounted}
+            title="Toggle theme"
+            theme={theme}
+            onButton={faMoon}
+            offButton={faSun}
+            callback={() => {
+              setTheme(theme === Theme.Light ? Theme.Dark : Theme.Light);
+            }}
+          />
+        </div>
       </div>
     </nav>
   );

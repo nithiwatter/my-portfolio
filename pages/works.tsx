@@ -5,15 +5,15 @@ function WorksHeroSection() {
         <div className="flex justify-center">
           <div className="pb-4">
             <h1 className="relative text-center text-9xl before:absolute before:z-0 before:content-['Work']">
-              <span className="relative z-[1] animate-fading bg-gradient-to-r from-sky-500 to-cyan-300 bg-clip-text text-transparent opacity-0 dark:text-transparent">
+              <span className="relative z-[1] animate-fading bg-gradient-to-r from-sky-500 to-cyan-300 bg-clip-text text-transparent opacity-0">
                 Work
               </span>
             </h1>
             <h1 className="relative text-center text-9xl before:absolute before:z-0 before:content-['Experience']">
               <span
-                className="relative z-[1] animate-fading bg-gradient-to-r from-teal-500 to-green-300 bg-clip-text text-transparent opacity-0 dark:text-transparent"
+                className="relative z-[1] animate-fading bg-gradient-to-r from-teal-500 to-green-300 bg-clip-text text-transparent opacity-0"
                 style={{
-                  animationDelay: '2500ms',
+                  animationDelay: '4000ms',
                 }}
               >
                 Experience

@@ -13,7 +13,7 @@ module.exports = {
         },
       },
       animation: {
-        fading: 'fading 5s ease infinite',
+        fading: 'fading 8s ease infinite',
       },
     },
   },

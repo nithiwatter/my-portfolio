@@ -5,7 +5,17 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        fading: {
+          '0%, 100%': { opacity: 0 },
+          '50%': { opacity: 1 },
+        },
+      },
+      animation: {
+        fading: 'fading 5s ease infinite',
+      },
+    },
   },
   plugins: [],
 };

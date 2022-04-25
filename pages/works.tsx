@@ -124,7 +124,7 @@ function ExperiencePane() {
       <div className="order-1 mb-8 w-full grow md:order-none md:w-1/3">
         <a
           href="#"
-          className="relative block aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-xl focus:ring-2 focus:ring-offset-2"
+          className="relative block aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-md transition-transform duration-300 hover:-translate-y-3  focus:ring-2 focus:ring-offset-2"
         >
           <Image
             src={myteapal}

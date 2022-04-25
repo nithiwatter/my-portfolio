@@ -43,7 +43,7 @@
   }
 
   .underlined {
-    @apply relative whitespace-nowrap no-underline;
+    @apply relative block whitespace-nowrap no-underline;
   }
 
   .underlined-after {

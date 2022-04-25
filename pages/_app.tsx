@@ -12,6 +12,8 @@ import Layout from '../components/layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
+    // @ts-ignore: Types arr bundled incorrectly for this package
+    // next-themes has bugs for its latest version - use 0.0.15
     <ThemeProvider attribute="class">
       <AnimationProvider>
         <Layout>

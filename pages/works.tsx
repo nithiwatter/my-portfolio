@@ -73,10 +73,10 @@ function ShortExperiencePane({
   src,
 }: ShortExperiencePaneProps) {
   return (
-    <div className="flex justify-center text-white ">
+    <div className="flex justify-center text-white">
       <a
         href="#"
-        className="color-text w-1/2 rounded-md bg-blue-500 p-4 transition-colors hover:bg-blue-400 focus:bg-blue-400 focus:ring-2 focus:ring-offset-2"
+        className="color-text w-full rounded-md bg-blue-500 p-4 transition-colors hover:bg-blue-400 focus:bg-blue-400 focus:ring-2 focus:ring-offset-2 xl:w-1/2"
       >
         <div className="flex items-center">
           <div>
@@ -95,8 +95,8 @@ function ShortExperiencePane({
           </div>
 
           <div className="grow">
-            <div className="mb-2 flex items-center justify-between">
-              <h3 className="color-text">{title}</h3>
+            <div className="mb-2 flex flex-col items-start justify-between sm:flex-row sm:items-center">
+              <h3 className="color-text mb-1 sm:mb-0">{title}</h3>
               <div className="rounded-md bg-gray-200 py-1 px-2 text-blue-600">
                 <span>{date}</span>
               </div>

@@ -11,6 +11,7 @@ import reactLogo from '../public/images/react.png';
 import pythonLogo from '../public/images/python.png';
 import innovationStudioLogo from '../public/images/innovation-studio.png';
 import tencentLogo from '../public/images/tencent.png';
+import cohereLogo from '../public/images/cohere.jpg';
 import myteapal from '../public/images/myteapal.png';
 import hours from '../public/images/hours.webp';
 
@@ -276,6 +277,48 @@ function ExperiencePane({
   );
 }
 
+function CoherePane() {
+  return (
+    <div className="flex justify-center text-white">
+      <a
+        href="https://cohere.io/"
+        target="_blank"
+        rel="noreferrer"
+        className="color-text w-full rounded-md bg-blue-500 p-4 shadow-md transition-colors hover:bg-blue-400 focus:bg-blue-400 focus:ring-2 focus:ring-offset-2 xl:w-1/2"
+      >
+        <div className="flex items-center">
+          <div>
+            <div className="mr-4 h-12 w-12 overflow-hidden rounded-md bg-gray-200 p-1">
+              <div className="relative h-full w-full">
+                <Image
+                  src={cohereLogo}
+                  alt="Cohere"
+                  layout="fill"
+                  objectFit="contain"
+                  objectPosition="center center"
+                  placeholder="blur"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="grow space-y-2">
+            <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
+              <h3 className="color-text mb-1 sm:mb-0">
+                Incoming Software Engineer
+              </h3>
+              <div className="rounded-md bg-gray-200 py-1 px-2 text-blue-600">
+                <span>Jun 2022</span>
+              </div>
+            </div>
+            <p className="color-text">Excited to start on a new journey!</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  );
+}
+
 function Work() {
   // further research into the sizes prop of next/image - potential increases in performance
   return (
@@ -366,8 +409,7 @@ function Work() {
                 )
               )}
             </div>
-
-            <div>Footer</div>
+            <CoherePane />
           </div>
         </div>
       </AnimatedOnEnter>

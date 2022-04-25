@@ -62,6 +62,10 @@
     @apply relative z-20 w-40 rounded-md border-none p-1 shadow-lg ring-1 ring-black ring-opacity-5;
   }
 
+  .timeline {
+    @apply border-slate-300 dark:border-slate-500;
+  }
+
   [data-reach-menu-item],
   a[data-reach-menu-item] {
     @apply rounded-md p-2 text-black;

@@ -14,6 +14,7 @@ const shortExperiences = [
     content:
       'Entered college wanting to be an economist. No idea what to do with life. No extracurricular activities. No passion.',
     src: dukeLogo,
+    href: 'https://duke.edu/',
   },
   {
     title: 'First CS Class',
@@ -21,6 +22,7 @@ const shortExperiences = [
     content:
       'Learned coding for the first time. First language Python. Always finished assignments in 2 hours after releases. Felt a spark - surprisingly intuitive and fun.',
     src: pythonLogo,
+    href: 'https://www.python.org/',
   },
   {
     title: 'Second Summer',
@@ -28,6 +30,7 @@ const shortExperiences = [
     content:
       'Back to Thailand due to Covid outbreak. Could not find any internship, so spent time learning full-stack development online everyday. Coded hideous spaghetti projects. Learned a lot.',
     src: reactLogo,
+    href: 'https://github.com/nithiwatter/color-app',
   },
 ];
 
@@ -36,6 +39,7 @@ type ShortExperiencePaneProps = {
   date: string;
   content: string;
   src: StaticImageData;
+  href: string;
 };
 
 function WorksHeroSection() {
@@ -71,16 +75,19 @@ function ShortExperiencePane({
   date,
   content,
   src,
+  href,
 }: ShortExperiencePaneProps) {
   return (
     <div className="flex justify-center text-white">
       <a
-        href="#"
+        href={href}
+        target="_blank"
+        rel="noreferrer"
         className="color-text w-full rounded-md bg-blue-500 p-4 transition-colors hover:bg-blue-400 focus:bg-blue-400 focus:ring-2 focus:ring-offset-2 xl:w-1/2"
       >
         <div className="flex items-center">
           <div>
-            <div className="mr-4 h-12 w-12 overflow-hidden  rounded-md bg-gray-200 p-1">
+            <div className="mr-4 h-12 w-12 overflow-hidden rounded-md bg-gray-200 p-1">
               <div className="relative h-full w-full">
                 <Image
                   src={src}
@@ -111,9 +118,12 @@ function ShortExperiencePane({
 
 function ExperiencePane() {
   return (
-    <div className="flex">
-      <div className="mb-8 w-1/3 grow">
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-md">
+    <div className="flex flex-col md:flex-row">
+      <div className="order-1 mb-8 w-full grow md:order-none md:w-1/3">
+        <a
+          href="#"
+          className="relative block aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-xl focus:ring-2 focus:ring-offset-2"
+        >
           <Image
             src={myteapal}
             alt="myteapal"
@@ -122,15 +132,16 @@ function ExperiencePane() {
             objectPosition="center center"
             placeholder="blur"
           />
-        </div>
+        </a>
       </div>
 
-      <div className="mx-4 flex flex-col items-center">
-        <span className="h-2 w-2 rounded-full border-2 " />
-        <span className="grow border-r-2" />
+      <div className="mx-4 mb-4 flex flex-col items-center md:mb-0">
+        <span className="timeline h-10 border-r-2 md:hidden" />
+        <span className="timeline h-2 w-2 rounded-full border-2" />
+        <span className="timeline hidden grow border-r-2 md:block" />
       </div>
 
-      <div className="w-1/2 grow">
+      <div className="mb-8 w-full grow self-center text-center md:mb-0 md:w-1/2 md:self-auto md:text-left">
         <h2>Software Engineer for MyTeaPal</h2>
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -156,13 +167,14 @@ function Work() {
       <div className="flex justify-center">
         <div className="w-3/4 space-y-8">
           <div className="space-y-4">
-            {shortExperiences.map(({ title, date, content, src }) => (
+            {shortExperiences.map(({ title, date, content, src, href }) => (
               <ShortExperiencePane
                 key={title}
                 title={title}
                 date={date}
                 content={content}
                 src={src}
+                href={href}
               />
             ))}
           </div>

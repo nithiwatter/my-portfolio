@@ -173,7 +173,7 @@ function ShortExperiencePane({
 
           <div className="grow space-y-2">
             <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
-              <h3 className="color-text mb-1 sm:mb-0">{title}</h3>
+              <h2 className="color-text mb-1 text-lg sm:mb-0">{title}</h2>
               <div className="rounded-md bg-gray-200 py-1 px-2 text-blue-600">
                 <span>{date}</span>
               </div>
@@ -284,7 +284,7 @@ function CoherePane() {
         href="https://cohere.io/"
         target="_blank"
         rel="noreferrer"
-        className="color-text w-full rounded-md bg-blue-500 p-4 shadow-md transition-colors hover:bg-blue-400 focus:bg-blue-400 focus:ring-2 focus:ring-offset-2 xl:w-1/2"
+        className="color-text w-full rounded-md bg-emerald-500 p-4 shadow-md transition-colors hover:bg-emerald-400 focus:bg-emerald-400 focus:ring-2 focus:ring-offset-2 xl:w-1/2"
       >
         <div className="flex items-center">
           <div>
@@ -304,10 +304,10 @@ function CoherePane() {
 
           <div className="grow space-y-2">
             <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
-              <h3 className="color-text mb-1 sm:mb-0">
+              <h2 className="color-text mb-1 text-lg sm:mb-0">
                 Incoming Software Engineer
-              </h3>
-              <div className="rounded-md bg-gray-200 py-1 px-2 text-blue-600">
+              </h2>
+              <div className="rounded-md bg-gray-200 py-1 px-2 text-emerald-600">
                 <span>Jun 2022</span>
               </div>
             </div>

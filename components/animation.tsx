@@ -3,6 +3,8 @@ import { animated, config, useSpring, useTrail } from '@react-spring/web';
 import { useHover } from '@use-gesture/react';
 import { useInView } from 'react-intersection-observer';
 
+// some of these could probably just use normal CSS instead of react-spring
+
 type AnimatedOnEnterProps = {
   children: React.ReactNode;
 };

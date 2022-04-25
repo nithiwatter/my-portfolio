@@ -2,6 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import type { StaticImageData } from 'next/image';
 
+import { AnimatedOnEnter } from '../components/animation';
+
 import dukeLogo from '../public/images/duke.png';
 import reactLogo from '../public/images/react.png';
 import pythonLogo from '../public/images/python.png';
@@ -164,27 +166,26 @@ function Work() {
   return (
     <div className="space-y-8">
       <WorksHeroSection />
-      <div className="flex justify-center">
-        <div className="w-3/4 space-y-8">
-          <div className="space-y-4">
-            {shortExperiences.map(({ title, date, content, src, href }) => (
-              <ShortExperiencePane
-                key={title}
-                title={title}
-                date={date}
-                content={content}
-                src={src}
-                href={href}
-              />
-            ))}
+      <AnimatedOnEnter>
+        <div className="flex justify-center">
+          <div className="w-3/4 space-y-8">
+            <div className="space-y-4">
+              {shortExperiences.map(({ title, date, content, src, href }) => (
+                <ShortExperiencePane
+                  key={title}
+                  title={title}
+                  date={date}
+                  content={content}
+                  src={src}
+                  href={href}
+                />
+              ))}
+            </div>
+            <ExperiencePane />
+            <ExperiencePane />
           </div>
-          <ExperiencePane />
-          <ExperiencePane />
         </div>
-      </div>
-      <div className="flex">
-        <div className="h-10 bg-blue-500"></div>
-      </div>
+      </AnimatedOnEnter>
     </div>
   );
 }

@@ -1,6 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 
+import dukeLogo from '../public/images/duke.png';
+import reactLogo from '../public/images/react.png';
+import pythonLogo from '../public/images/python.png';
 import myteapal from '../public/images/myteapal.png';
 
 const shortExperiences = [
@@ -9,18 +13,21 @@ const shortExperiences = [
     date: 'Aug 2018',
     content:
       'Entered college wanting to be an economist. No idea what to do with life. No extracurricular activities. No passion.',
+    src: dukeLogo,
   },
   {
     title: 'First CS Class',
     date: 'Jan 2019',
     content:
       'Learned coding for the first time. First language Python. Always finished assignments in 2 hours after releases. Felt a spark - surprisingly intuitive and fun.',
+    src: pythonLogo,
   },
   {
     title: 'Second Summer',
     date: 'Mar 2020',
     content:
       'Back to Thailand due to Covid outbreak. Could not find any internship, so spent time learning full-stack development online everyday. Coded hideous spaghetti projects. Learned a lot.',
+    src: reactLogo,
   },
 ];
 
@@ -28,6 +35,7 @@ type ShortExperiencePaneProps = {
   title: string;
   date: string;
   content: string;
+  src: StaticImageData;
 };
 
 function WorksHeroSection() {
@@ -62,13 +70,25 @@ function ShortExperiencePane({
   title,
   date,
   content,
+  src,
 }: ShortExperiencePaneProps) {
   return (
     <div className="flex justify-center">
       <div className="w-1/2 rounded-md bg-blue-500 p-4 text-white">
         <div className="flex items-center">
           <div>
-            <div className="mr-4 h-12 w-12 rounded-md bg-blue-100 "></div>
+            <div className="mr-4 h-12 w-12 overflow-hidden  rounded-md bg-white p-1">
+              <div className="relative h-full w-full">
+                <Image
+                  src={src}
+                  alt={title}
+                  layout="fill"
+                  objectFit="contain"
+                  objectPosition="center center"
+                  placeholder="blur"
+                />
+              </div>
+            </div>
           </div>
 
           <div className="grow">
@@ -133,12 +153,13 @@ function Work() {
       <div className="flex justify-center">
         <div className="w-3/4 space-y-8">
           <div className="space-y-4">
-            {shortExperiences.map(({ title, date, content }) => (
+            {shortExperiences.map(({ title, date, content, src }) => (
               <ShortExperiencePane
                 key={title}
                 title={title}
                 date={date}
                 content={content}
+                src={src}
               />
             ))}
           </div>

@@ -55,7 +55,7 @@
   }
 
   .color-text {
-    @apply text-inherit dark:text-inherit;
+    @apply text-inherit hover:text-inherit focus:text-inherit dark:text-inherit dark:hover:text-inherit dark:focus:text-inherit;
   }
 
   .menu-list {

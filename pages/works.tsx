@@ -73,11 +73,14 @@ function ShortExperiencePane({
   src,
 }: ShortExperiencePaneProps) {
   return (
-    <div className="flex justify-center">
-      <div className="w-1/2 rounded-md bg-blue-500 p-4 text-white">
+    <div className="flex justify-center text-white ">
+      <a
+        href="#"
+        className="color-text w-1/2 rounded-md bg-blue-500 p-4 transition-colors hover:bg-blue-400 focus:bg-blue-400 focus:ring-2 focus:ring-offset-2"
+      >
         <div className="flex items-center">
           <div>
-            <div className="mr-4 h-12 w-12 overflow-hidden  rounded-md bg-white p-1">
+            <div className="mr-4 h-12 w-12 overflow-hidden  rounded-md bg-gray-200 p-1">
               <div className="relative h-full w-full">
                 <Image
                   src={src}
@@ -101,7 +104,7 @@ function ShortExperiencePane({
             <p className="color-text">{content}</p>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   );
 }

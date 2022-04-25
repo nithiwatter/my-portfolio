@@ -3,6 +3,33 @@ import Image from 'next/image';
 
 import myteapal from '../public/images/myteapal.png';
 
+const shortExperiences = [
+  {
+    title: 'Started College',
+    date: 'Aug 2018',
+    content:
+      'Entered college wanting to be an economist. No idea what to do with life. No extracurricular activities. No passion.',
+  },
+  {
+    title: 'First CS Class',
+    date: 'Jan 2019',
+    content:
+      'Learned coding for the first time. First language Python. Always finished assignments in 2 hours after releases. Felt a spark - surprisingly intuitive and fun.',
+  },
+  {
+    title: 'Second Summer',
+    date: 'Mar 2020',
+    content:
+      'Back to Thailand due to Covid outbreak. Could not find any internship, so spent time learning full-stack development online everyday. Coded hideous spaghetti projects. Learned a lot.',
+  },
+];
+
+type ShortExperiencePaneProps = {
+  title: string;
+  date: string;
+  content: string;
+};
+
 function WorksHeroSection() {
   return (
     <div className="pointer-events-none relative z-10 h-[100vh]">
@@ -31,6 +58,34 @@ function WorksHeroSection() {
   );
 }
 
+function ShortExperiencePane({
+  title,
+  date,
+  content,
+}: ShortExperiencePaneProps) {
+  return (
+    <div className="flex justify-center">
+      <div className="w-1/2 rounded-md bg-blue-500 p-4 text-white">
+        <div className="flex items-center">
+          <div>
+            <div className="mr-4 h-12 w-12 rounded-md bg-blue-100 "></div>
+          </div>
+
+          <div className="grow">
+            <div className="mb-2 flex items-center justify-between">
+              <h3 className="color-text">{title}</h3>
+              <div className="rounded-md bg-gray-200 py-1 px-2 text-blue-600">
+                <span>{date}</span>
+              </div>
+            </div>
+            <p className="color-text">{content}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ExperiencePane() {
   return (
     <div className="flex">
@@ -48,22 +103,22 @@ function ExperiencePane() {
       </div>
 
       <div className="mx-4 flex flex-col items-center">
-        <span className="h-2 w-2 rounded-full border-2 border-black" />
+        <span className="h-2 w-2 rounded-full border-2 " />
         <span className="grow border-r-2" />
       </div>
 
-      <div className="w-1/2 shrink grow-[2]">
+      <div className="w-1/2 grow">
         <h2>Software Engineer for MyTeaPal</h2>
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industrys standard dummy text ever
           since the 1500s, when an unknown printer took a galley of type and
           scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
+          asds five centuries, but also the leap into electronic typesetting,
           remaining essentially unchanged. It was popularised in the 1960s with
           the release of Letraset sheets containing Lorem Ipsum passages, and
           more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
+          asdas including versions of Lorem Ipsum.
         </p>
       </div>
     </div>
@@ -76,10 +131,23 @@ function Work() {
     <div className="space-y-8">
       <WorksHeroSection />
       <div className="flex justify-center">
-        <div className="w-3/4">
+        <div className="w-3/4 space-y-8">
+          <div className="space-y-4">
+            {shortExperiences.map(({ title, date, content }) => (
+              <ShortExperiencePane
+                key={title}
+                title={title}
+                date={date}
+                content={content}
+              />
+            ))}
+          </div>
           <ExperiencePane />
           <ExperiencePane />
         </div>
+      </div>
+      <div className="flex">
+        <div className="h-10 bg-blue-500"></div>
       </div>
     </div>
   );

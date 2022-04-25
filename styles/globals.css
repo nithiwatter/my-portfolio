@@ -39,15 +39,15 @@
   }
 
   .active-after {
-    @apply absolute left-0 block h-0.5 w-full bg-black dark:bg-white;
+    @apply block h-1 w-full bg-black dark:bg-white;
   }
 
   .underlined {
-    @apply relative block whitespace-nowrap no-underline;
+    @apply relative inline-block whitespace-nowrap no-underline;
   }
 
   .underlined-after {
-    @apply absolute left-0 block h-0.5 w-full origin-left scale-x-0 bg-black transition-transform duration-[250] dark:bg-white;
+    @apply block h-1 w-full origin-left scale-x-0 bg-black transition-transform duration-[250] dark:bg-white;
   }
 
   .model-background {

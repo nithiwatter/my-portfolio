@@ -53,7 +53,7 @@ function Link({ children, href, active, noNextLink }: LinkProps) {
       <NextLink href={href}>
         <a
           className={clsx('underlined', {
-            'after:underlined-after after:hover:scale-x-100 after:focus:scale-100':
+            'after:underlined-after after:hover:scale-x-100 after:focus:scale-x-100':
               !active,
             'active after:active-after': active,
           })}
@@ -66,7 +66,7 @@ function Link({ children, href, active, noNextLink }: LinkProps) {
 
   return (
     <a
-      className="underlined after:underlined-after after:hover:scale-x-100 after:focus:scale-100"
+      className="underlined after:underlined-after after:hover:scale-x-100 after:focus:scale-x-100"
       href={href}
       target="_blank"
       rel="noreferrer"
@@ -156,7 +156,7 @@ function Navbar() {
               Posts
             </Link>
           </li>
-          <li className="flex items-end space-x-2">
+          <li className="space-x-2">
             <Link
               href="https://github.com/nithiwatter/my-portfolio"
               active={false}

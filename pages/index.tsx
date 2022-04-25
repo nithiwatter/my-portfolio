@@ -245,7 +245,7 @@ function OnTheWebSection() {
       <h2 className="underline underline-offset-4">On the Web</h2>
       <div className="flex h-12 items-center justify-between">
         {socials.map((ele) => (
-          <div key={ele.name} className="flex items-center space-x-2">
+          <div key={ele.name} className="space-x-2">
             <a
               className="underlined after:underlined-after text-lg font-semibold after:hover:scale-x-100 after:focus:scale-100"
               href={ele.href}

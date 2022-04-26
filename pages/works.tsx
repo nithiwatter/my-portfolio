@@ -114,6 +114,7 @@ type ExperiencePaneProps = {
 function WorksHeroSection() {
   return (
     <div className="pointer-events-none relative z-10 h-[100vh]">
+      <div className="pointer-events-auto absolute left-0 bottom-0 h-2/5 w-full md:hidden" />
       <div className="pointer-events-auto absolute bottom-8 left-0 right-0 ml-auto mr-auto w-3/4 space-y-4 sm:w-full sm:space-y-8">
         <div className="flex justify-center">
           <div className="pb-4">
@@ -234,7 +235,7 @@ function ExperiencePane({
       </div>
 
       <div className="mb-8 w-full grow space-y-2 self-center text-center md:w-1/2 md:self-auto md:text-left">
-        <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
+        <div className="flex flex-col items-center justify-between gap-2 sm:flex-row sm:gap-0">
           <h2 className="mr-2">{title}</h2>
           <div className="rounded-md bg-gray-200 py-1 px-2 text-blue-600">
             <span>{date}</span>

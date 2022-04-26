@@ -92,6 +92,7 @@ const socials = [
 function HomeHeroSection() {
   return (
     <div className="pointer-events-none relative z-10 h-[100vh]">
+      <div className="pointer-events-auto absolute left-0 bottom-0 h-2/5 w-full md:hidden" />
       <div className="pointer-events-auto absolute bottom-8 left-0 right-0 ml-auto mr-auto w-3/4 space-y-4 sm:w-full sm:space-y-8">
         <div className="flex items-center justify-center ">
           <div className="rounded-md bg-gray-700/10 p-4 backdrop-blur dark:bg-gray-100/10">

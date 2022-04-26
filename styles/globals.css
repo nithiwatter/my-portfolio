@@ -71,7 +71,7 @@
   }
 
   .icon {
-    @apply text-black dark:text-white;
+    @apply text-slate-800 dark:text-gray-200;
   }
 
   [data-reach-menu-item],

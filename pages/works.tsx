@@ -186,7 +186,7 @@ function ShortExperiencePane({
                 {tags.map((tag) => (
                   <div
                     key={tag}
-                    className="inline-block rounded-md bg-gray-200 py-1 px-2 text-blue-600"
+                    className="rounded-md bg-gray-200 py-1 px-2 text-blue-600"
                   >
                     <span>{tag}</span>
                   </div>
@@ -249,7 +249,7 @@ function ExperiencePane({
 
         <div className="flex flex-wrap justify-center gap-2 md:justify-start">
           {showFirstTag && (
-            <div className="inline-block rounded-md bg-gray-200 py-1 px-2 text-blue-600">
+            <div className="rounded-md bg-gray-200 py-1 px-2 text-blue-600">
               <FontAwesomeIcon
                 icon={faArrowDown}
                 size="lg"
@@ -267,7 +267,7 @@ function ExperiencePane({
           {tags?.map((tag) => (
             <div
               key={tag}
-              className="inline-block rounded-md bg-gray-200 py-1 px-2 text-blue-600"
+              className="rounded-md bg-gray-200 py-1 px-2 text-blue-600"
             >
               <span>{tag}</span>
             </div>

@@ -144,7 +144,7 @@ function Navbar() {
   return (
     <nav className="fixed top-0 z-20 flex w-full justify-center bg-slate-100/80 backdrop-blur dark:bg-slate-800/80">
       <div className="flex w-full items-center justify-end p-4 sm:justify-between lg:w-1/2">
-        <ul className="hidden space-x-8 sm:flex">
+        <ul className="hidden gap-8 sm:flex">
           <li>
             <Link href="/" active={router.asPath === '/'}>
               Home

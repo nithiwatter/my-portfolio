@@ -42,6 +42,10 @@
     @apply block h-1 w-full bg-black dark:bg-white;
   }
 
+  /* need inline-block instead of the default inline - otherwise
+  the :after block content would not make it inline anymore
+  the :after creates a block child element within the inline a - 
+  an inline element cannot contain block elements */
   .underlined {
     @apply relative inline-block whitespace-nowrap no-underline;
   }

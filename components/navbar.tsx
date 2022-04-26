@@ -184,7 +184,7 @@ function Navbar() {
             title="Toggle animation"
             type="button"
             onClick={toggleAnimationState}
-            className="flex h-12 w-12 items-center justify-center p-2 text-white dark:text-slate-800"
+            className="base-button flex h-12 w-12 items-center justify-center p-2 text-white dark:text-slate-800"
           >
             {!mounted ? null : animationState === AnimationState.On ? (
               <FontAwesomeIcon icon={faEyeSlash} size="lg" fixedWidth />
@@ -199,7 +199,7 @@ function Navbar() {
             onClick={() => {
               setTheme(theme === Theme.Light ? Theme.Dark : Theme.Light);
             }}
-            className="flex h-12 w-12 items-center justify-center p-2"
+            className="base-button flex h-12 w-12 items-center justify-center p-2"
           >
             {!mounted ? null : theme === Theme.Light ? (
               <FontAwesomeIcon

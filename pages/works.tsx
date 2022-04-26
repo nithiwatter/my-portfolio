@@ -215,6 +215,8 @@ function ExperiencePane({
       <div className="order-1 w-full grow md:order-none md:mb-8 md:w-1/3">
         <a
           href={href}
+          target="_blank"
+          rel="noreferrer"
           className="relative block aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-md transition-transform duration-300 hover:-translate-y-3 focus:ring-2 focus:ring-offset-2"
         >
           <Image

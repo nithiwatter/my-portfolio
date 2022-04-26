@@ -237,7 +237,7 @@ function ExperiencePane({
       <div className="mb-8 w-full grow space-y-2 self-center text-center md:w-1/2 md:self-auto md:text-left">
         <div className="flex flex-col items-center justify-between gap-2 sm:flex-row sm:gap-0">
           <h2 className="mr-2">{title}</h2>
-          <div className="rounded-md bg-gray-200 py-1 px-2 text-blue-600">
+          <div className="rounded-md bg-gray-200 py-1 px-2 text-center text-blue-600">
             <span>{date}</span>
           </div>
         </div>

@@ -12,13 +12,9 @@ import Layout from '../components/layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    // @ts-ignore: Types arr bundled incorrectly for this package
+    // @ts-ignore: Types are bundled incorrectly for this package
     // next-themes has bugs for its latest version - use 0.0.15
-    <ThemeProvider
-      attribute="class"
-      disableTransitionOnChange
-      enableColorScheme={false}
-    >
+    <ThemeProvider attribute="class" disableTransitionOnChange>
       <AnimationProvider>
         <Layout>
           <Component {...pageProps} />

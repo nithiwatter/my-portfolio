@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 import type { NextRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   faBars,
   faBriefcase,
@@ -83,7 +82,7 @@ function NavMenu({ router }: NavMenuProps) {
         title="Navigation"
         className="base-button mr-2 flex h-12 w-12 items-center justify-center p-2 text-white dark:text-slate-800 sm:hidden"
       >
-        <FontAwesomeIcon icon={faBars} size="lg" className="block" />
+        <FontAwesomeIcon icon={faBars} size="lg" fixedWidth />
       </MenuButton>
       <MenuList className="menu-list">
         <MenuItem onSelect={() => router.push('/')}>
@@ -91,6 +90,7 @@ function NavMenu({ router }: NavMenuProps) {
             icon={faHome}
             size="1x"
             className="mr-2 text-slate-500"
+            fixedWidth
           />
           Home
         </MenuItem>
@@ -99,6 +99,7 @@ function NavMenu({ router }: NavMenuProps) {
             icon={faBriefcase}
             size="1x"
             className="mr-2 text-slate-500"
+            fixedWidth
           />
           Works
         </MenuItem>
@@ -107,6 +108,7 @@ function NavMenu({ router }: NavMenuProps) {
             icon={faKeyboard}
             size="1x"
             className="mr-2 text-slate-500"
+            fixedWidth
           />
           Posts
         </MenuItem>
@@ -120,6 +122,7 @@ function NavMenu({ router }: NavMenuProps) {
             icon={faGithubAlt}
             size="1x"
             className="mr-2 text-slate-500"
+            fixedWidth
           />
           Source
         </MenuLink>
@@ -165,7 +168,12 @@ function Navbar() {
             >
               Source
             </Link>
-            <FontAwesomeIcon icon={faGithubAlt} size="lg" className="icon" />
+            <FontAwesomeIcon
+              icon={faGithubAlt}
+              size="lg"
+              className="icon"
+              fixedWidth
+            />
           </li>
         </ul>
 
@@ -174,18 +182,20 @@ function Navbar() {
         <div className="flex gap-2">
           <button
             title="Toggle animation"
+            type="button"
             onClick={toggleAnimationState}
             className="flex h-12 w-12 items-center justify-center p-2 text-white dark:text-slate-800"
           >
             {!mounted ? null : animationState === AnimationState.On ? (
-              <FontAwesomeIcon icon={faEyeSlash} size="lg" className="block" />
+              <FontAwesomeIcon icon={faEyeSlash} size="lg" fixedWidth />
             ) : (
-              <FontAwesomeIcon icon={faEye} size="lg" className="block" />
+              <FontAwesomeIcon icon={faEye} size="lg" fixedWidth />
             )}
           </button>
 
           <button
             title="Toggle theme"
+            type="button"
             onClick={() => {
               setTheme(theme === Theme.Light ? Theme.Dark : Theme.Light);
             }}
@@ -195,13 +205,15 @@ function Navbar() {
               <FontAwesomeIcon
                 icon={faMoon}
                 size="lg"
-                className="block text-white"
+                className="text-white"
+                fixedWidth
               />
             ) : (
               <FontAwesomeIcon
                 icon={faSun}
                 size="lg"
-                className="block text-slate-800"
+                className="text-slate-800"
+                fixedWidth
               />
             )}
           </button>

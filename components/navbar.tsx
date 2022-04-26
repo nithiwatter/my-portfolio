@@ -79,10 +79,11 @@ function Link({ children, href, active, noNextLink }: LinkProps) {
 function NavMenu({ router }: NavMenuProps) {
   return (
     <Menu>
-      <MenuButton title="Navigation" className="base-button mr-2 sm:hidden">
-        <div className="m-2 flex h-8 w-8 items-center justify-center text-white dark:text-slate-800">
-          <FontAwesomeIcon icon={faBars} size="lg" />
-        </div>
+      <MenuButton
+        title="Navigation"
+        className="base-button mr-2 flex h-12 w-12 items-center justify-center p-2 text-white dark:text-slate-800 sm:hidden"
+      >
+        <FontAwesomeIcon icon={faBars} size="lg" className="block" />
       </MenuButton>
       <MenuList className="menu-list">
         <MenuItem onSelect={() => router.push('/')}>
@@ -164,7 +165,7 @@ function Navbar() {
             >
               Source
             </Link>
-            <FontAwesomeIcon icon={faGithubAlt} size="lg" />
+            <FontAwesomeIcon icon={faGithubAlt} size="lg" className="icon" />
           </li>
         </ul>
 
@@ -177,9 +178,9 @@ function Navbar() {
             className="flex h-12 w-12 items-center justify-center p-2 text-white dark:text-slate-800"
           >
             {!mounted ? null : animationState === AnimationState.On ? (
-              <FontAwesomeIcon icon={faEyeSlash} size="lg" />
+              <FontAwesomeIcon icon={faEyeSlash} size="lg" className="block" />
             ) : (
-              <FontAwesomeIcon icon={faEye} size="lg" />
+              <FontAwesomeIcon icon={faEye} size="lg" className="block" />
             )}
           </button>
 
@@ -191,12 +192,16 @@ function Navbar() {
             className="flex h-12 w-12 items-center justify-center p-2"
           >
             {!mounted ? null : theme === Theme.Light ? (
-              <FontAwesomeIcon icon={faMoon} size="lg" className="text-white" />
+              <FontAwesomeIcon
+                icon={faMoon}
+                size="lg"
+                className="block text-white"
+              />
             ) : (
               <FontAwesomeIcon
                 icon={faSun}
                 size="lg"
-                className="text-slate-800"
+                className="block text-slate-800"
               />
             )}
           </button>

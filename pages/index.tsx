@@ -254,7 +254,7 @@ function OnTheWebSection() {
             >
               {ele.name}
             </a>
-            <FontAwesomeIcon icon={ele.icon} size="lg" />
+            <FontAwesomeIcon icon={ele.icon} size="lg" className="icon" />
           </div>
         ))}
       </div>

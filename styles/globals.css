@@ -66,6 +66,10 @@
     @apply border-slate-300 dark:border-slate-500;
   }
 
+  .icon {
+    @apply text-black dark:text-white;
+  }
+
   [data-reach-menu-item],
   a[data-reach-menu-item] {
     @apply rounded-md p-2 text-black;

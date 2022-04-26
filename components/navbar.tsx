@@ -170,18 +170,16 @@ function Navbar() {
 
         <NavMenu router={router} />
 
-        <div className="space-x-2">
-          <button title="Toggle animation" onClick={toggleAnimationState}>
-            {!mounted ? (
-              <div className="m-2 h-8 w-8" />
-            ) : animationState === AnimationState.On ? (
-              <div className="m-2 flex h-8 w-8 items-center justify-center text-white dark:text-slate-800">
-                <FontAwesomeIcon icon={faEyeSlash} size="lg" />
-              </div>
+        <div className="flex gap-2">
+          <button
+            title="Toggle animation"
+            onClick={toggleAnimationState}
+            className="flex h-12 w-12 items-center justify-center p-2 text-white dark:text-slate-800"
+          >
+            {!mounted ? null : animationState === AnimationState.On ? (
+              <FontAwesomeIcon icon={faEyeSlash} size="lg" />
             ) : (
-              <div className="m-2 flex h-8 w-8 items-center justify-center text-white dark:text-slate-800">
-                <FontAwesomeIcon icon={faEye} size="lg" />
-              </div>
+              <FontAwesomeIcon icon={faEye} size="lg" />
             )}
           </button>
 
@@ -190,17 +188,16 @@ function Navbar() {
             onClick={() => {
               setTheme(theme === Theme.Light ? Theme.Dark : Theme.Light);
             }}
+            className="flex h-12 w-12 items-center justify-center p-2"
           >
-            {!mounted ? (
-              <div className="m-2 h-8 w-8" />
-            ) : theme === Theme.Light ? (
-              <div className="m-2 flex h-8 w-8 items-center justify-center text-white">
-                <FontAwesomeIcon icon={faMoon} size="lg" />
-              </div>
+            {!mounted ? null : theme === Theme.Light ? (
+              <FontAwesomeIcon icon={faMoon} size="lg" className="text-white" />
             ) : (
-              <div className="m-2 flex h-8 w-8 items-center justify-center text-slate-800">
-                <FontAwesomeIcon icon={faSun} size="lg" />
-              </div>
+              <FontAwesomeIcon
+                icon={faSun}
+                size="lg"
+                className="text-slate-800"
+              />
             )}
           </button>
         </div>

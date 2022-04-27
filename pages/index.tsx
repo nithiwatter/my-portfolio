@@ -189,17 +189,18 @@ function AnimeSection() {
       <div>
         <h3>Favorite Animes:</h3>
         <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
-          {animes.map((el, index) => (
-            <a
-              key={index}
-              href={el.href}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-md focus:ring-2 focus:ring-offset-2"
-            >
-              <Card src={el.src} alt={el.name} />
-              <p className="text-center">{el.name}</p>
-            </a>
+          {animes.map((el) => (
+            <div key={el.name}>
+              <a
+                href={el.href}
+                target="_blank"
+                rel="noreferrer"
+                className="card-link rounded-md focus:ring-2 focus:ring-offset-2"
+              >
+                <Card src={el.src} alt={el.name} />
+                <p className="text-center">{el.name}</p>
+              </a>
+            </div>
           ))}
         </div>
       </div>
@@ -207,17 +208,18 @@ function AnimeSection() {
       <div>
         <h3>Favorite Mangas:</h3>
         <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
-          {mangas.map((el, index) => (
-            <a
-              key={index}
-              href={el.href}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-md focus:ring-2 focus:ring-offset-2"
-            >
-              <Card src={el.src} alt={el.name} />
-              <p className="text-center">{el.name}</p>
-            </a>
+          {mangas.map((el) => (
+            <div key={el.name}>
+              <a
+                href={el.href}
+                target="_blank"
+                rel="noreferrer"
+                className="card-link rounded-md focus:ring-2 focus:ring-offset-2"
+              >
+                <Card src={el.src} alt={el.name} />
+                <p className="text-center">{el.name}</p>
+              </a>
+            </div>
           ))}
         </div>
       </div>

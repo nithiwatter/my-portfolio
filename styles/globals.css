@@ -66,6 +66,10 @@
     @apply relative z-20 w-40 rounded-md border-none p-1 shadow-lg ring-1 ring-black ring-opacity-5;
   }
 
+  .card-link {
+    @apply block text-slate-800 hover:text-black focus:text-black dark:text-gray-200 dark:hover:text-white dark:focus:text-white;
+  }
+
   .timeline {
     @apply border-slate-300 dark:border-slate-500;
   }

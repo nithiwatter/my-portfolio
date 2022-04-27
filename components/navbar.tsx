@@ -136,10 +136,8 @@ function Navbar() {
   const { mounted } = useCheckMounted();
   const toggleAnimationState = useAnimationDispatch();
   const router = useRouter();
-  const { theme: chosenTheme, systemTheme, setTheme } = useTheme();
+  const { resolvedTheme: theme, setTheme } = useTheme();
   const animationState = useAnimationState();
-
-  const theme = chosenTheme === 'system' ? systemTheme : chosenTheme;
 
   return (
     <nav className="fixed top-0 z-20 flex w-full justify-center bg-slate-100/80 backdrop-blur dark:bg-slate-800/80">

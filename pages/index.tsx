@@ -14,6 +14,7 @@ import {
   ColorText,
 } from '../components/animation';
 import { AnimeCard as Card } from '../components/card';
+import HeroWrapper from '../components/heroWrapper';
 
 import profilePic from '../public/images/hayasaka-profile.jpg';
 import haikyuu from '../public/images/haikyuu.jpg';
@@ -91,10 +92,9 @@ const socials = [
 
 function HomeHeroSection() {
   return (
-    <div className="pointer-events-none relative z-10 h-[100vh]">
-      <div className="pointer-events-auto absolute left-0 bottom-0 h-2/5 w-full md:hidden" />
-      <div className="pointer-events-auto absolute bottom-8 left-0 right-0 ml-auto mr-auto w-3/4 space-y-4 sm:w-full sm:space-y-8">
-        <div className="flex items-center justify-center ">
+    <HeroWrapper>
+      <div className="w-3/4 space-y-4 pt-60 pb-16 sm:w-full sm:space-y-8 sm:pt-72">
+        <div className="pointer-events-auto flex items-center justify-center">
           <div className="rounded-md bg-gray-700/10 p-4 backdrop-blur dark:bg-gray-100/10">
             <AnimatedText>
               <p className="text-center">
@@ -117,13 +117,13 @@ function HomeHeroSection() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center space-x-6">
-          <div className="space-y-2">
+        <div className="pointer-events-auto flex items-center justify-center gap-6">
+          <div className="space-y-2 text-center">
             <AnimatedTexts>
-              <h1 className="text-center text-2xl sm:text-4xl">
+              <h1 className="text-3xl sm:text-4xl">
                 Nithiwat Seesillapachai (Ter)
               </h1>
-              <h2 className="text-center">Software Engineer / Weeb</h2>
+              <h2 className="text-xl sm:text-2xl">Software Engineer / Weeb</h2>
             </AnimatedTexts>
           </div>
 
@@ -139,7 +139,7 @@ function HomeHeroSection() {
           </div>
         </div>
       </div>
-    </div>
+    </HeroWrapper>
   );
 }
 

@@ -55,7 +55,7 @@
   }
 
   .model-background {
-    @apply h-[90vh];
+    @apply absolute top-0 left-0 z-0 h-96 w-full md:h-[30rem];
   }
 
   .color-text {

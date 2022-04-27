@@ -41,7 +41,7 @@ function Layout({ children }: LayoutProps) {
       </Head>
       <div className="pb-12">
         <NavBar />
-        <div className="model-background absolute top-0 z-0 w-full">
+        <div className="model-background">
           <ModelLoader />
         </div>
         {children}

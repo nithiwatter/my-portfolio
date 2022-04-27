@@ -10,8 +10,8 @@ import * as THREE from 'three';
 import Model from './compressedModel';
 import { AnimationState, useAnimationState } from '../utils/animation-provider';
 
-const initialPosition: [x: number, y: number, z: number] = [0, 1, 3];
-const initialZoom = 0.6;
+const initialPosition: [x: number, y: number, z: number] = [0, 0.2, 3];
+const initialZoom = 1;
 
 function easeOutCirc(x: number) {
   return Math.sqrt(1 - Math.pow(x - 1, 4));
@@ -25,7 +25,7 @@ function CanvasWrapper() {
   const visible = animationState === AnimationState.On;
 
   React.useEffect(() => {
-    // delay animation by 1 second to prevent concurrent janky animations
+    // delay animation by a few ms to prevent concurrent janky animations
     // with spring animating on-enter texts
     const timer = setTimeout(() => setInitialVisible(true), 1000);
 
@@ -71,9 +71,9 @@ function CanvasWrapper() {
       <ambientLight intensity={0.4} />
       <directionalLight position={[0, 4, 7.5]} intensity={0.5} />
       <Suspense fallback={null}>
-        <Model position={[0, -0.8, 0]} visible={initialVisible && visible} />
+        <Model position={[0, -1.3, 0]} visible={initialVisible && visible} />
         <ContactShadows
-          position={[0, -0.8, 0]}
+          position={[0, -1.3, 0]}
           scale={7.5}
           opacity={0.25}
           frames={1}

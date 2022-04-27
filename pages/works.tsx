@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { AnimatedOnEnter } from '../components/animation';
+import HeroWrapper from '../components/heroWrapper';
 
 import dukeLogo from '../public/images/duke.png';
 import reactLogo from '../public/images/react.png';
@@ -113,17 +114,16 @@ type ExperiencePaneProps = {
 
 function WorksHeroSection() {
   return (
-    <div className="pointer-events-none relative z-10 h-[100vh]">
-      <div className="pointer-events-auto absolute left-0 bottom-0 h-2/5 w-full md:hidden" />
-      <div className="pointer-events-auto absolute bottom-8 left-0 right-0 ml-auto mr-auto w-3/4 space-y-4 sm:w-full sm:space-y-8">
-        <div className="flex justify-center">
-          <div className="pb-4">
-            <h1 className="relative text-center text-5xl before:absolute before:z-0 before:content-['Work'] sm:text-7xl md:text-8xl lg:text-9xl">
+    <HeroWrapper>
+      <div className="w-full pt-60 pb-16 sm:pt-72">
+        <div className="pointer-events-auto flex justify-center">
+          <div>
+            <h1 className="relative text-center text-6xl before:absolute before:z-0 before:content-['Work'] sm:text-7xl md:text-8xl lg:text-9xl">
               <span className="relative z-[1] animate-fading bg-gradient-to-r from-sky-500 to-cyan-300 bg-clip-text text-transparent opacity-0">
                 Work
               </span>
             </h1>
-            <h1 className="relative text-center text-5xl before:absolute before:z-0 before:content-['Experience'] sm:text-7xl md:text-8xl lg:text-9xl">
+            <h1 className="relative text-center text-6xl before:absolute before:z-0 before:content-['Experience'] sm:text-7xl md:text-8xl lg:text-9xl">
               <span
                 className="relative z-[1] animate-fading bg-gradient-to-r from-teal-500 to-green-300 bg-clip-text text-transparent opacity-0"
                 style={{
@@ -136,7 +136,7 @@ function WorksHeroSection() {
           </div>
         </div>
       </div>
-    </div>
+    </HeroWrapper>
   );
 }
 

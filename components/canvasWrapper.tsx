@@ -18,12 +18,23 @@ function easeOutCirc(x: number) {
 }
 
 function CanvasWrapper() {
+  const [initialVisible, setInitialVisible] = React.useState(false);
   const cameraRef = React.useRef<THREE.PerspectiveCamera>();
   const frameRef = React.useRef(0);
   const animationState = useAnimationState();
   const visible = animationState === AnimationState.On;
 
+  React.useEffect(() => {
+    // delay animation by 1 second to prevent concurrent janky animations
+    // with spring animating on-enter texts
+    const timer = setTimeout(() => setInitialVisible(true), 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   useFrame(() => {
+    if (!initialVisible) return;
+
     // This function runs at the native refresh rate inside of a shared render-loop
     const camera = cameraRef.current as THREE.PerspectiveCamera;
     if (frameRef.current <= 100) {
@@ -60,15 +71,15 @@ function CanvasWrapper() {
       <ambientLight intensity={0.4} />
       <directionalLight position={[0, 4, 7.5]} intensity={0.5} />
       <Suspense fallback={null}>
-        <Model position={[0, -0.8, 0]} visible={visible} />
-        <OrbitControls autoRotate />
+        <Model position={[0, -0.8, 0]} visible={initialVisible && visible} />
         <ContactShadows
           position={[0, -0.8, 0]}
           scale={7.5}
           opacity={0.25}
           frames={1}
-          visible={visible}
+          visible={initialVisible && visible}
         />
+        <OrbitControls autoRotate />
       </Suspense>
     </>
   );

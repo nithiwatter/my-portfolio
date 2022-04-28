@@ -1,3 +1,9 @@
+## What is this?
+
+This is the source code for my portfolio website. It is my first time experimenting with Three.js and making my website perfect (responsive and accessible)!
+
+## Project Details
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

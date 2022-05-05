@@ -4,7 +4,7 @@ import { Loader, useContextBridge } from '@react-three/drei';
 
 import CanvasWrapper from './canvasWrapper';
 import { AnimationStateContext } from '../utils/animation-provider';
-import { useCheckMounted } from '../utils/hooks';
+// import { useCheckMounted } from '../utils/hooks';
 
 const styles: { [key: string]: CSSProperties } = {
   container: {
@@ -20,10 +20,11 @@ const styles: { [key: string]: CSSProperties } = {
 
 function ModelLoader() {
   const ContextBridge = useContextBridge(AnimationStateContext);
-  const { mounted } = useCheckMounted();
+  // const { mounted } = useCheckMounted();
 
   // prevent rendering three-js on server side (otherwise would cause hydration differences)
-  if (!mounted) return null;
+  // do not need this as this is only rendered on client-side via lazy loading
+  // if (!mounted) return null;
 
   return (
     <>

@@ -19,6 +19,7 @@ const styles: { [key: string]: CSSProperties } = {
 };
 
 function ModelLoader() {
+  // warning about unreachable code in firefox for this statement
   const ContextBridge = useContextBridge(AnimationStateContext);
   // const { mounted } = useCheckMounted();
 
